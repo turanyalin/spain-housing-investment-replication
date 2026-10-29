@@ -1,0 +1,56 @@
+{
+  "retrieved": "2026-10-29",
+  "sample_levels": "1995-2024",
+  "sample_growth": "1996-2024",
+  "sources": {
+    "manufacturing_raw.json": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a64_p5?geo=ES&nace_r2=C&na_item=P51G&sinceTimePeriod=1995&untilTimePeriod=2024",
+    "gdp_raw.json": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?geo=ES&na_item=B1GQ&sinceTimePeriod=1995&untilTimePeriod=2024",
+    "investment_raw.json": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_an6?geo=ES&sinceTimePeriod=1995&untilTimePeriod=2024",
+    "house_raw.csv": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QESR628BIS"
+  },
+  "filters": {
+    "all_eurostat": "freq=A; geo=ES; unit=CLV20_MEUR",
+    "manufacturing": "nace_r2=C; na_item=P51G; asset10=N11G,N11MG,N117G",
+    "gdp": "na_item=B1GQ",
+    "extra_dwelling_series": "asset10=N111G; not used in reported regressions"
+  },
+  "versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8"
+  },
+  "python": "3.12.14",
+  "attribution": "National sources, BIS Residential Property Price database, https://www.bis.org/statistics/pp.htm; retrieved via FRED QESR628BIS. Eurostat national accounts.",
+  "sha256": {
+    "manufacturing_raw.json": "e18196567f9a8dd040b5daca3bf6998ba558bdaaf026ff8f5de375800a03c02a",
+    "gdp_raw.json": "17b9d5937cef90485e2129c3840b184d01fd0d0669584b25fad210ca3d2a2e11",
+    "investment_raw.json": "0447db291f3097479e33f6f57fb75a00c79006a297c7423bc2c3744d225ee54a",
+    "house_raw.csv": "645daad97e7a4dcc719919bee2fe25b3acd0e7a884b775a20a4cc865440dbf39"
+  },
+  "verification": {
+    "statsmodels": "0.15.0",
+    "patsy": "1.0.3",
+    "script": "verify_analysis.py",
+    "note": "All 13 OLS coefficient vectors, HAC standard errors, full calendar-aware covariance matrices, and R-squared values independently verified."
+  },
+  "literature_verified": {
+    "Martin et al 2021": "https://crei.cat/wp-content/uploads/2021/03/aer.20191410-1.pdf",
+    "Basco et al 2025": "https://doi.org/10.1093/ej/ueae075",
+    "Basco accepted manuscript": "https://hdl.handle.net/2445/217504"
+  },
+  "latex_conversion": {
+    "date": "2026-10-29",
+    "preserved_estimates": true,
+    "extensions": [
+      "Full covariance matrices archived in results.json",
+      "Vector figure PDFs regenerated directly from plotted observations",
+      "Independent full-matrix covariance comparison"
+    ],
+    "tolerance": 1e-08
+  },
+  "analysis_code_sha256": {
+    "analyze.py": "6c40f7dfdf56ee5e6c35824fcc2eeebaedda75279f0bc1902bf38820d0830b1d",
+    "verify_analysis.py": "9346bc83337079d8223bf3515189664137983c833fd4f8e96c1cabd36ee52a77"
+  }
+}

@@ -1,0 +1,118 @@
+\begin{thebibliography}{14}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bahaj et~al.(2020)Bahaj, Foulis, and Pinter]{bahaj2020}
+Saleem Bahaj, Angus Foulis, and Gabor Pinter.
+\newblock Home values and firm behavior.
+\newblock \emph{American Economic Review}, 110\penalty0 (7):\penalty0
+  2225--2270, 2020.
+\newblock \doi{10.1257/aer.20180649}.
+
+\bibitem[{Bank for International Settlements}(2026)]{bis2026}
+{Bank for International Settlements}.
+\newblock Residential property price database: {Spain} real residential
+  property prices.
+\newblock National sources and BIS, distributed by FRED as QESR628BIS, 2026.
+\newblock URL \url{https://fred.stlouisfed.org/series/QESR628BIS}.
+\newblock Series Q.ES.R.628; retrieved 29 October 2026.
+
+\bibitem[Basco et~al.(2025)Basco, L{\'o}pez-Rodr{\'i}guez, and
+  Moral-Benito]{basco2025}
+Sergi Basco, David L{\'o}pez-Rodr{\'i}guez, and Enrique Moral-Benito.
+\newblock House prices and misallocation: The impact of the collateral channel
+  on productivity.
+\newblock \emph{The Economic Journal}, 135\penalty0 (665):\penalty0 1--35,
+  2025.
+\newblock \doi{10.1093/ej/ueae075}.
+\newblock Accepted manuscript: \url{https://hdl.handle.net/2445/217504}.
+
+\bibitem[Chakraborty et~al.(2018)Chakraborty, Goldstein, and
+  MacKinlay]{chakraborty2018}
+Indraneel Chakraborty, Itay Goldstein, and Andrew MacKinlay.
+\newblock Housing price booms and crowding-out effects in bank lending.
+\newblock \emph{Review of Financial Studies}, 31\penalty0 (7):\penalty0
+  2806--2853, 2018.
+\newblock \doi{10.1093/rfs/hhy033}.
+
+\bibitem[Chaney et~al.(2012)Chaney, Sraer, and Thesmar]{chaney2012}
+Thomas Chaney, David Sraer, and David Thesmar.
+\newblock The collateral channel: How real estate shocks affect corporate
+  investment.
+\newblock \emph{American Economic Review}, 102\penalty0 (6):\penalty0
+  2381--2409, 2012.
+\newblock \doi{10.1257/aer.102.6.2381}.
+
+\bibitem[Dickey and Fuller(1979)]{dickey1979}
+David~A. Dickey and Wayne~A. Fuller.
+\newblock Distribution of the estimators for autoregressive time series with a
+  unit root.
+\newblock \emph{Journal of the American Statistical Association}, 74\penalty0
+  (366a):\penalty0 427--431, 1979.
+\newblock \doi{10.1080/01621459.1979.10482531}.
+
+\bibitem[{Eurostat}(2026{\natexlab{a}})]{eurostatgdp}
+{Eurostat}.
+\newblock {GDP} and main components (output, expenditure and income).
+\newblock Dataset nama\_10\_gdp, 2026{\natexlab{a}}.
+\newblock Spain; B1GQ; CLV20\_MEUR; retrieved 29 October 2026;
+  \doi{10.2908/nama_10_gdp}.
+
+\bibitem[{Eurostat}(2026{\natexlab{b}})]{eurostatinv}
+{Eurostat}.
+\newblock Capital formation by industry ({NACE Rev. 2}) and detailed asset
+  type.
+\newblock Dataset nama\_10\_a64\_p5, 2026{\natexlab{b}}.
+\newblock Spain manufacturing GFCF; unit CLV20\_MEUR; assets N11G, N11MG,
+  N117G; retrieved 29 October 2026; \doi{10.2908/nama_10_a64_p5}.
+
+\bibitem[{Eurostat}(2026{\natexlab{c}})]{eurostatmeta}
+{Eurostat}.
+\newblock Gross fixed capital formation by main asset type.
+\newblock National accounts metadata, 2026{\natexlab{c}}.
+\newblock URL
+  \url{https://ec.europa.eu/eurostat/cache/metadata/en/nama_10_an6_esms.htm}.
+\newblock Retrieved 29 October 2026.
+
+\bibitem[Gopinath et~al.(2017)Gopinath, Kalemli-{\"O}zcan, Karabarbounis, and
+  Villegas-Sanchez]{gopinath2017}
+Gita Gopinath, {\c{S}}ebnem Kalemli-{\"O}zcan, Loukas Karabarbounis, and
+  Carolina Villegas-Sanchez.
+\newblock Capital allocation and productivity in {South Europe}.
+\newblock \emph{Quarterly Journal of Economics}, 132\penalty0 (4):\penalty0
+  1915--1967, 2017.
+\newblock \doi{10.1093/qje/qjx024}.
+
+\bibitem[Khwaja and Mian(2008)]{khwaja2008}
+Asim~Ijaz Khwaja and Atif Mian.
+\newblock Tracing the impact of bank liquidity shocks: Evidence from an
+  emerging market.
+\newblock \emph{American Economic Review}, 98\penalty0 (4):\penalty0
+  1413--1442, 2008.
+\newblock \doi{10.1257/aer.98.4.1413}.
+
+\bibitem[Ljung and Box(1978)]{ljung1978}
+Greta~M. Ljung and George E.~P. Box.
+\newblock On a measure of lack of fit in time series models.
+\newblock \emph{Biometrika}, 65\penalty0 (2):\penalty0 297--303, 1978.
+\newblock \doi{10.1093/biomet/65.2.297}.
+
+\bibitem[Mart{\'i}n et~al.(2021)Mart{\'i}n, Moral-Benito, and
+  Schmitz]{martin2021}
+Alberto Mart{\'i}n, Enrique Moral-Benito, and Tom Schmitz.
+\newblock The financial transmission of housing booms: Evidence from {Spain}.
+\newblock \emph{American Economic Review}, 111\penalty0 (3):\penalty0
+  1013--1053, 2021.
+\newblock \doi{10.1257/aer.20191410}.
+
+\bibitem[Newey and West(1987)]{newey1987}
+Whitney~K. Newey and Kenneth~D. West.
+\newblock A simple, positive semi-definite, heteroskedasticity and
+  autocorrelation consistent covariance matrix.
+\newblock \emph{Econometrica}, 55\penalty0 (3):\penalty0 703--708, 1987.
+\newblock \doi{10.2307/1913610}.
+
+\end{thebibliography}

@@ -1,0 +1,109 @@
+{
+  "M1": {
+    "ols_verified": true,
+    "calendar_hac_verified": true,
+    "full_covariance_verified": true,
+    "n": 29
+  },
+  "M2": {
+    "ols_verified": true,
+    "calendar_hac_verified": true,
+    "full_covariance_verified": true,
+    "n": 29
+  },
+  "M3": {
+    "ols_verified": true,
+    "calendar_hac_verified": true,
+    "full_covariance_verified": true,
+    "n": 29
+  },
+  "residual_ljung_box": {
+    "1": {
+      "lb_stat": 0.8895123524234269,
+      "lb_pvalue": 0.3456094899716211
+    },
+    "2": {
+      "lb_stat": 0.8900607330291008,
+      "lb_pvalue": 0.6408048167280735
+    }
+  },
+  "dummy_2020_leverage": 1.0,
+  "M4": {
+    "ols_verified": true,
+    "calendar_hac_verified": true,
+    "full_covariance_verified": true,
+    "n": 28
+  },
+  "R1_equipment": {
+    "ols_verified": true,
+    "calendar_hac_verified": true,
+    "full_covariance_verified": true,
+    "n": 29
+  },
+  "R2_ipp": {
+    "ols_verified": true,
+    "calendar_hac_verified": true,
+    "full_covariance_verified": true,
+    "n": 29
+  },
+  "R3_pre2008": {
+    "ols_verified": true,
+    "calendar_hac_verified": true,
+    "full_covariance_verified": true,
+    "n": 12
+  },
+  "R4_exclude_covid": {
+    "ols_verified": true,
+    "calendar_hac_verified": true,
+    "full_covariance_verified": true,
+    "n": 27
+  },
+  "R5_hac2": {
+    "ols_verified": true,
+    "calendar_hac_verified": true,
+    "full_covariance_verified": true,
+    "n": 29
+  },
+  "R6_AR1": {
+    "ols_verified": true,
+    "calendar_hac_verified": true,
+    "full_covariance_verified": true,
+    "n": 28
+  },
+  "R7_to2023": {
+    "ols_verified": true,
+    "calendar_hac_verified": true,
+    "full_covariance_verified": true,
+    "n": 28
+  },
+  "R8_pre2008_omit2000": {
+    "ols_verified": true,
+    "calendar_hac_verified": true,
+    "full_covariance_verified": true,
+    "n": 11
+  },
+  "R9_boom_only": {
+    "ols_verified": true,
+    "calendar_hac_verified": true,
+    "full_covariance_verified": true,
+    "n": 7
+  },
+  "g_manufacturing_ADF": {
+    "statistic": -3.095778088296939,
+    "p": 0.026867210618866,
+    "lag": 1,
+    "n": 27
+  },
+  "g_house_ADF": {
+    "statistic": -2.3523590262070972,
+    "p": 0.15563643937017718,
+    "lag": 1,
+    "n": 27
+  },
+  "g_gdp_ADF": {
+    "statistic": -3.3366861614708005,
+    "p": 0.013316153630917251,
+    "lag": 1,
+    "n": 27
+  }
+}
