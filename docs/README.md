@@ -31,4 +31,4 @@ Tables and reported numerical prose in `main.tex` are editable LaTeX and are not
 
 ## Changes from the source archive
 
-The original analysis scripts, raw responses, manuscript, bibliography, and reference numerical outputs are preserved. Packaging adds the reproduction runner, setup entry point, documentation, citation metadata, software license, and build commands. Original file hashes remain in `replication/source_manifest.json`.
+The original analysis scripts, raw responses, bibliography, and reference numerical outputs are preserved. Packaging adds the reproduction runner, setup entry point, documentation, citation metadata, software license, and build commands. The manuscript prose has been edited for clarity; the data, specifications, and numerical estimates are unchanged. Original analysis-code and raw-data hashes remain in `replication/source_manifest.json`.
