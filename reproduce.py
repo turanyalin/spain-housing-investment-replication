@@ -17,12 +17,16 @@ def compare(actual: object, expected: object, location: str) -> None:
     """Compare numerical results, allowing insignificant floating-point drift."""
     if isinstance(expected, bool) or expected is None or isinstance(expected, str):
         if type(actual) is not type(expected) or actual != expected:
-            raise ValueError(f"Reference mismatch at {location}: {actual!r} != {expected!r}")
+            raise ValueError(
+                f"Reference mismatch at {location}: {actual!r} != {expected!r}"
+            )
     elif isinstance(expected, (int, float)):
         if isinstance(actual, bool) or not isinstance(actual, (int, float)):
             raise ValueError(f"Expected a number at {location}, got {actual!r}")
         if not math.isclose(actual, expected, rel_tol=1e-9, abs_tol=1e-8):
-            raise ValueError(f"Numerical mismatch at {location}: {actual!r} != {expected!r}")
+            raise ValueError(
+                f"Numerical mismatch at {location}: {actual!r} != {expected!r}"
+            )
     elif isinstance(expected, dict):
         if not isinstance(actual, dict) or actual.keys() != expected.keys():
             raise ValueError(f"Result fields changed at {location}")
@@ -41,10 +45,14 @@ def main() -> None:
     manifest = json.loads((REPLICATION / "source_manifest.json").read_text())
     for section in ("sha256", "analysis_code_sha256"):
         for filename, expected_hash in manifest[section].items():
-            actual_hash = hashlib.sha256((REPLICATION / filename).read_bytes()).hexdigest()
+            actual_hash = hashlib.sha256(
+                (REPLICATION / filename).read_bytes()
+            ).hexdigest()
             if actual_hash != expected_hash:
-                raise ValueError(f"Archived file SHA-256 mismatch: replication/{filename}")
-    print("Archived data and original analysis-code hashes verified.", flush=True)
+                raise ValueError(
+                    f"Archived file SHA-256 mismatch: replication/{filename}"
+                )
+    print("Archived data and analysis-code hashes verified.", flush=True)
 
     output_names = ("results.json", "submission_statistical_checks.json")
     references = {
@@ -54,9 +62,11 @@ def main() -> None:
         raise ValueError("The archived reference must contain all 13 models.")
 
     (ROOT / "figures").mkdir(exist_ok=True)
-    for script in ("analyze.py", "verify_analysis.py"):
+    for script in ("analyze.py", "verify_analysis.py", "render_tables.py"):
         print(f"\nRunning {script} with {sys.executable}", flush=True)
-        subprocess.run([sys.executable, str(REPLICATION / script)], cwd=REPLICATION, check=True)
+        subprocess.run(
+            [sys.executable, str(REPLICATION / script)], cwd=REPLICATION, check=True
+        )
 
     for filename, expected in references.items():
         actual = json.loads((REPLICATION / filename).read_text())
@@ -65,6 +75,15 @@ def main() -> None:
         path = ROOT / "figures" / filename
         if not path.is_file() or not path.stat().st_size:
             raise ValueError(f"Missing or empty figure: {path}")
+    for filename in (
+        "descriptive_table.tex",
+        "main_models_table.tex",
+        "sensitivity_table.tex",
+        "diagnostics_table.tex",
+    ):
+        path = ROOT / "tables" / filename
+        if not path.is_file() or not path.stat().st_size:
+            raise ValueError(f"Missing or empty generated table: {path}")
     print(
         "\nReplication passed: 13 models, independent statistical audit, "
         "and archived numerical outputs verified.",

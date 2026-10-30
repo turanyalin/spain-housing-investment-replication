@@ -1,11 +1,14 @@
-.PHONY: reproduce paper clean
+.PHONY: reproduce test paper clean
 
 PYTHON ?= python
 
 reproduce:
 	$(PYTHON) reproduce.py
 
-paper:
+test:
+	$(PYTHON) -m unittest discover -s tests -v
+
+paper: reproduce
 	latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
 clean:

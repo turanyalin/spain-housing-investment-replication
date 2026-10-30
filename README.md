@@ -4,6 +4,8 @@ Replication code and archived public data for **House Prices, Bank Credit, and M
 
 This repository reconstructs the annual dataset, four main OLS regressions, nine sensitivity specifications, statistical diagnostics, and two figures used in the manuscript. It includes the LaTeX manuscript and bibliography. The analysis runs from archived data without downloading new observations or requiring an API key.
 
+For a short code sample and module guide, start with [the pipeline walkthrough](docs/code_walkthrough.md).
+
 ## Quick start
 
 Use **Python 3.12**. Run these commands from the repository root:
@@ -19,7 +21,7 @@ python reproduce.py
 
 On Windows, create the environment with `py -3.12 -m venv .venv` and activate it with `.venv\Scripts\Activate.ps1` in PowerShell. You can also download and extract the repository ZIP instead of using Git.
 
-The reproduction command checks the archived input and analysis-code SHA-256 hashes, regenerates the analysis and figures, independently checks all 13 regressions with statsmodels, and compares numerical results and diagnostics with the supplied reference outputs. A successful run ends with `Replication passed: 13 models, independent statistical audit, and archived numerical outputs verified.`
+The reproduction command checks the archived input and analysis-code SHA-256 hashes, regenerates the analysis and figures, independently checks all 13 regressions with statsmodels, generates the four empirical manuscript tables, and compares numerical results and diagnostics with the supplied reference outputs. A successful run ends with `Replication passed: 13 models, independent statistical audit, and archived numerical outputs verified.`
 
 Installing Python packages requires internet access. The analysis itself uses local files only. Keep the supplied `replication/results.json` and `replication/submission_statistical_checks.json` for the first run; these are the numerical references checked by the runner. Generated files are overwritten when you rerun the analysis.
 
@@ -34,6 +36,7 @@ The sample contains annual levels for Spain in **1995–2024** and log growth ra
 | Coefficients, HAC standard errors, confidence intervals, and p-values | [`replication/regression_results.csv`](replication/regression_results.csv) |
 | Descriptive statistics | [`replication/summary_statistics.csv`](replication/summary_statistics.csv) |
 | Independent regression checks and time-series diagnostics | [`replication/submission_statistical_checks.json`](replication/submission_statistical_checks.json) |
+| Generated empirical table snippets | [`tables/`](tables/README.md) |
 | PNG figures | `replication/figure1.png`, `replication/figure2.png` |
 | Vector figures used in the manuscript | `figures/figure1.pdf`, `figures/figure2.pdf` |
 
@@ -49,7 +52,7 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
 This creates `main.pdf`. Alternatively run `pdflatex main`, `bibtex main`, `pdflatex main`, and `pdflatex main`, in that order. On Overleaf, upload the repository ZIP and select `main.tex` as the main document. The supplied `main.bbl` is a prebuilt bibliography; `references.bib` is the editable source.
 
-Python regenerates the figure files, datasets, regression results, and diagnostics. LaTeX tables contain the archived estimates as editable text; they are **not automatically rewritten** by Python. If you change the data or specifications, update the manuscript tables and discussion before rebuilding the paper.
+Python regenerates the figures, datasets, regression results, diagnostics, and empirical table snippets. `main.tex` includes the generated snippets for Tables 2, 3, 4, and 6. Source definitions (Table 1), published microeconomic estimates (Table 5), and numerical prose remain editable manuscript text. After changing data or specifications, regenerate the outputs and review the discussion before rebuilding the paper.
 
 ## Repository guide
 
@@ -57,8 +60,10 @@ Python regenerates the figure files, datasets, regression results, and diagnosti
 | --- | --- |
 | [`reproduce.py`](reproduce.py) | Reproduce and validate the analysis in one command |
 | [`requirements.txt`](requirements.txt) | Entry point to the pinned Python environment |
-| [`replication/`](replication/README.md) | Original code, archived inputs, and reference outputs |
+| [`replication/`](replication/README.md) | Modular code, archived inputs, and reference outputs |
 | [`figures/`](figures/README.md) | Vector figure files |
+| [`tables/`](tables/README.md) | Generated LaTeX table snippets |
+| [`tests/`](tests/test_pipeline.py) | Calendar-gap and ingestion regression checks |
 | [`docs/`](docs/README.md) | Checks, troubleshooting, and manuscript notes |
 | [`main.tex`](main.tex) | Editable manuscript |
 | [`references.bib`](references.bib) | Bibliography |

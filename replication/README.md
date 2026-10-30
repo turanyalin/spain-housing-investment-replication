@@ -1,17 +1,18 @@
 # Analysis and statistical verification
 
-This folder preserves the analysis and independent verification scripts from the LaTeX replication package. Both use paths relative to their own files, so they can be called from the repository root.
+This folder separates archived-data ingestion, model estimation, reporting, and figure generation. Start with [`analyze.py`](analyze.py) or the [pipeline walkthrough](../docs/code_walkthrough.md) for the short code sample. Entry-point scripts resolve paths relative to their own files and can be called from the repository root.
 
 ## Run the complete replication
 
-Install the dependencies using the [root instructions](../README.md), then run `python reproduce.py` from the repository root. To run the original scripts separately:
+Install the dependencies using the [root instructions](../README.md), then run `python reproduce.py` from the repository root. To run the pipeline entry points separately:
 
 ```bash
 python replication/analyze.py
 python replication/verify_analysis.py
+python replication/render_tables.py
 ```
 
-The second script must run after the first. Running them separately performs their internal assertions and statistical audit but omits the wrapper's input-hash and archived-output comparisons.
+Run those three scripts in order. The table renderer consumes the result and diagnostic JSON files. Running the entry points separately omits the root wrapper's hash and numerical-reference comparisons. Focused regression checks run with `python -m unittest discover -s tests -v`.
 
 ## Model definitions
 
@@ -37,7 +38,7 @@ HAC standard errors use Bartlett weights and finite-sample correction `n/(n−k)
 
 ## What each script does
 
-`analyze.py` selects the Eurostat series, averages the four quarterly BIS/FRED house-price observations for each year, calculates growth rates and lags, and estimates all 13 models. It checks complete positive observations, full-rank designs, and the Frisch–Waugh–Lovell identity. It also calculates descriptive statistics, phase averages, and leave-one-year-out sensitivity, and writes CSV, JSON, PNG, and PDF outputs.
+`analyze.py` coordinates `data.py`, `models.py`, `reporting.py`, and `figures.py`. The ingestion module selects Eurostat series, requires four distinct BIS/FRED quarters per year, validates annual levels, and constructs growth and lags. The model module estimates all 13 specifications and sensitivity summaries. Reporting writes tidy CSV and complete JSON outputs, and the figure module checks the Frisch–Waugh–Lovell identity before plotting the partial relationship.
 
 `verify_analysis.py` independently fits OLS with statsmodels and compares coefficients, HAC standard errors, full covariance matrices, and R-squared values. Missing calendar years receive zero score contributions in its HAC estimate. It also reports baseline residual Ljung–Box diagnostics, maximum leverage for the 2020 dummy, and fixed-lag Augmented Dickey–Fuller diagnostics for manufacturing investment, house-price, and GDP growth.
 
@@ -45,6 +46,6 @@ The numerical checks are assertions; run Python normally without `-O` or `PYTHON
 
 ## Data and outputs
 
-See [`DATA.md`](DATA.md) for sources and transformations. [`source_manifest.json`](source_manifest.json) records the retrieval date, exact URLs, original code and data hashes, and recorded versions. [`requirements.txt`](requirements.txt) pins the Python packages.
+See [`DATA.md`](DATA.md) for sources and transformations. [`source_manifest.json`](source_manifest.json) records the retrieval date, exact URLs, active module and raw-data hashes, and recorded versions. [`requirements.txt`](requirements.txt) pins the Python packages.
 
-The supplied CSV and JSON files are reference outputs and are overwritten by the scripts. PNG figures are written here; vector PDFs are written to [`../figures/`](../figures/README.md). The extra dwelling series is retained for completeness and is not used in the reported regressions.
+The supplied CSV and JSON files are numerical references and are overwritten by the scripts. `render_tables.py` writes the empirical LaTeX tables used by manuscript Tables 2, 3, 4, and 6. PNG figures are written here; vector PDFs are written to [`../figures/`](../figures/README.md). The extra dwelling series is retained for completeness and is not used in the reported regressions.

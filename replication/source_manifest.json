@@ -50,7 +50,31 @@
     "tolerance": 1e-08
   },
   "analysis_code_sha256": {
+    "analyze.py": "194f7de821653336b7ff61f2c29d7d7d369ccfa2c16167d7410a1d3fa473fbd5",
+    "data.py": "7f9bc88637ef75316213a4acacea029e6b62b07b8ae72ceac63e9828c6a92648",
+    "figures.py": "900c0a0cee0b20467427f268238d5bf820e2bcf101df5ac293f108be350dc057",
+    "models.py": "27fdf11507ad199ead952a07e9156adc62291aee152260a64c18e1656ab207d6",
+    "render_tables.py": "ed72382523e8b2451893bd0ad3561af61ee682bf461e926a17447936fd403782",
+    "reporting.py": "ba37cc25ca1198351b40f530f726f179daf7c4c163d7f947c8cdd45d457942a2",
+    "verify_analysis.py": "9346bc83337079d8223bf3515189664137983c833fd4f8e96c1cabd36ee52a77",
+    "table_layouts/descriptive_table.tex": "0902900875e59701c0c4fbf014c0725149fc059d43536d46ed50653c2bc9df01",
+    "table_layouts/diagnostics_table.tex": "97b5cd3aee687f367c6355abfa8868907ce02abe1ab576c35e2d26395e4f24a3",
+    "table_layouts/main_models_table.tex": "18b76dc54b9fdc430d349c11ed585ec0f9aad4f4e6788573621a4cb58546ef78",
+    "table_layouts/sensitivity_table.tex": "fb8f061bac15accf50d1bc1f0d8731256caf4db0ee7bcbd3601e41a2d6eb30c4"
+  },
+  "original_analysis_code_sha256": {
     "analyze.py": "6c40f7dfdf56ee5e6c35824fcc2eeebaedda75279f0bc1902bf38820d0830b1d",
     "verify_analysis.py": "9346bc83337079d8223bf3515189664137983c833fd4f8e96c1cabd36ee52a77"
+  },
+  "code_revision": {
+    "scope": "Modular ingestion, estimation, figures, and generated empirical LaTeX tables",
+    "original_code_available_at_commit": "73acfa6feb8306062177eb26e112d96993ff0815",
+    "estimates_preserved": true,
+    "generated_manuscript_tables": [
+      2,
+      3,
+      4,
+      6
+    ]
   }
 }

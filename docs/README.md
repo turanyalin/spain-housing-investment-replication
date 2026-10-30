@@ -6,7 +6,7 @@ Use Python 3.12 and the versions in `replication/requirements.txt`. A virtual en
 
 ## Validation sequence
 
-`python reproduce.py` checks raw-file and original analysis-code hashes before running either script. It retains the supplied JSON outputs in memory, rebuilds the analysis, runs the independent statsmodels audit, and compares every value in the regenerated model-results and diagnostics JSON files with the references. It also checks that both vector figures are nonempty.
+`python reproduce.py` checks raw-file and active analysis-code hashes before running the pipeline. It retains the supplied JSON outputs in memory, rebuilds the analysis, runs the independent statsmodels audit, and compares every value in the regenerated model-results and diagnostics JSON files with the references. It also generates four empirical table snippets and checks that the tables and both vector figures are nonempty.
 
 The reference comparison uses absolute tolerance `1e-8` and relative tolerance `1e-9`. The independent audit uses the checks described in the [analysis README](../replication/README.md). Figures are regenerated without requiring byte identity because metadata and rendering can vary.
 
@@ -14,9 +14,9 @@ To return to the published references after editing outputs, use a fresh clone o
 
 ## Manuscript build
 
-Run the analysis before compiling if you want fresh figures. `make paper` compiles the manuscript; `make reproduce` runs the numerical reproduction; `make clean` removes temporary TeX files with `latexmk -c`.
+Run the analysis before compiling if you want fresh figures. `make paper` reproduces the numerical analysis and compiles the manuscript; `make reproduce` runs the numerical pipeline; `make test` checks calendar gaps and ingestion; `make clean` removes temporary TeX files with `latexmk -c`.
 
-Tables and reported numerical prose in `main.tex` are editable LaTeX and are not generated from `results.json`. Changing a specification does not automatically produce a revised manuscript.
+Tables 2, 3, 4, and 6 load their generated contents from `tables/`. Source definitions, literature estimates, and numerical prose remain in `main.tex`. Changing a specification therefore still requires reviewing the manuscript text. See the [pipeline walkthrough](code_walkthrough.md) for the code sample and module responsibilities.
 
 ## Troubleshooting
 
@@ -24,11 +24,11 @@ Tables and reported numerical prose in `main.tex` are editable LaTeX and are not
 | --- | --- |
 | `ModuleNotFoundError` | Activate the virtual environment and run `python -m pip install -r requirements.txt` from the root. |
 | No matching package version | Confirm Python 3.12, a supported platform, and an index with the pinned releases. Do not silently substitute versions for an exact reproduction. |
-| Hash mismatch | Compare the affected file with the published commit or use a fresh clone. Raw inputs and original analysis scripts should remain unchanged. |
+| Hash mismatch | Compare the affected file with the published commit or use a fresh clone. Raw inputs and the versioned active scripts should match the selected commit. |
 | Numerical mismatch | Retain the error, Python and package versions, platform, and repository commit when opening an issue. |
 | Missing `latexmk` or TeX package | Install a TeX distribution with the packages requested by `main.tex`, or use Overleaf. |
 | Different results from live data | Series may have been revised. Use the archived files for exact reproduction and treat fresh observations as a separate update. |
 
 ## Changes from the source archive
 
-The original analysis scripts, raw responses, bibliography, and reference numerical outputs are preserved. Packaging adds the reproduction runner, setup entry point, documentation, citation metadata, software license, and build commands. The manuscript prose has been edited for clarity; the data, specifications, and numerical estimates are unchanged. Original analysis-code and raw-data hashes remain in `replication/source_manifest.json`.
+The analysis is refactored into ingestion, estimation, reporting, and figure modules. Four empirical manuscript tables are now generated from the saved results. The original scripts remain available in Git history; their hashes are recorded separately from the active module hashes in `replication/source_manifest.json`. Raw responses, model definitions, bibliography, and numerical reference results are preserved. The manuscript prose has been edited for clarity, and Appendix A focuses on calendar-gap HAC inference.

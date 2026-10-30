@@ -182,17 +182,7 @@ All growth rates use equation~\eqref{eq:4}, so the reported units are percentage
 \small\setstretch{1.05}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.25}
-\begin{tabularx}{\linewidth}{@{}>{\hsize=2.60\hsize\linewidth=\hsize}Y >{\hsize=.68\hsize\linewidth=\hsize}C >{\hsize=.68\hsize\linewidth=\hsize}C >{\hsize=.68\hsize\linewidth=\hsize}C >{\hsize=.68\hsize\linewidth=\hsize}C >{\hsize=.68\hsize\linewidth=\hsize}C @{}}
-\toprule
-\textbf{Variable} & \textbf{N} & \textbf{Mean} & \textbf{SD} & \textbf{Min} & \textbf{Max}\\
-\midrule
-Manufacturing investment & $29$ & $2.76$ & $11.58$ & $-33.94$ & $31.12$\\
-Real house prices & $29$ & $1.87$ & $7.29$ & $-18.38$ & $13.22$\\
-Real GDP & $29$ & $1.99$ & $3.53$ & $-11.59$ & $6.47$\\
-Manufacturing equipment & $29$ & $2.34$ & $16.72$ & $-48.17$ & $46.53$\\
-Manufacturing intellectual property & $29$ & $6.00$ & $12.39$ & $-17.80$ & $34.16$\\
-\bottomrule
-\end{tabularx}
+\input{tables/descriptive_table.tex}
 \begin{tablenotes}[flushleft]
 \footnotesize\setstretch{1.08}
 \item Sample: 1996--2024. Growth rates equal 100 times the annual change in natural logarithms. SD is the sample standard deviation. Source: author calculations.
@@ -223,7 +213,7 @@ GDP is an imperfect control. Investment contributes to GDP, and both can respond
 Appendix~\ref{app:B} reports unit-root and residual diagnostics. A fixed-lag augmented Dickey--Fuller test does not reject a unit root in house price growth at the 5 percent level. Stationarity of that series is therefore uncertain in this short sample. HAC standard errors address a limited form of serial dependence and heteroskedasticity; they do not resolve possible nonstationarity, structural change, or endogeneity. The reported p-values and intervals are exploratory and conditional on the maintained time series assumptions.
 
 
-The short sample favors parsimonious specifications. The sensitivity analysis varies the investment outcome, time window, lag structure, and treatment of the pandemic years. These estimates are considered jointly; the reported p-values are not adjusted for multiple comparisons. Appendix~\ref{app:A} describes the data and code needed to reproduce the analysis.
+The short sample favors parsimonious specifications. The sensitivity analysis varies the investment outcome, time window, lag structure, and treatment of the pandemic years. These estimates are considered jointly; the reported p-values are not adjusted for multiple comparisons. Appendix~\ref{app:A} describes how the covariance estimator handles gaps in the annual sample.
 
 
 \clearpage
@@ -259,20 +249,7 @@ Manufacturing investment log growth averaged $-1.49$ percentage points in 2001--
 \small\setstretch{1.05}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.25}
-\begin{tabularx}{\linewidth}{@{}>{\hsize=2.10\hsize\linewidth=\hsize}Y >{\hsize=.725\hsize\linewidth=\hsize}C >{\hsize=.725\hsize\linewidth=\hsize}C >{\hsize=.725\hsize\linewidth=\hsize}C >{\hsize=.725\hsize\linewidth=\hsize}C @{}}
-\toprule
-\textbf{Regressor or statistic} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4}\\
-\midrule
-House price growth & \shortstack{$0.161$\\$(0.300)$} & \shortstack{$-0.076$\\$(0.256)$} & \shortstack{$-0.263$\\$(0.434)$} & \shortstack{$0.045$\\$(0.581)$}\\
-GDP growth & \textemdash & \shortstack{$1.105$\\$(0.721)$} & \shortstack{$1.942$\\$(2.139)$} & \shortstack{$2.023$\\$(2.152)$}\\
-2020 indicator & \textemdash & \textemdash & \shortstack{$17.123$\\$(30.272)$} & \shortstack{$19.271$\\$(30.302)$}\\
-Lagged house price growth & \textemdash & \textemdash & \textemdash & \shortstack{$-0.403$\\$(0.327)$}\\
-Constant & \shortstack{$2.459$\\$(2.495)$} & \shortstack{$0.703$\\$(2.773)$} & \shortstack{$-1.203$\\$(5.157)$} & \shortstack{$-1.428$\\$(5.172)$}\\
-Observations & $29$ & $29$ & $29$ & $28$\\
-$R^2$ & $0.010$ & $0.102$ & $0.125$ & $0.146$\\
-House coefficient p-value & $0.596$ & $0.769$ & $0.551$ & $0.940$\\
-\bottomrule
-\end{tabularx}
+\input{tables/main_models_table.tex}
 \begin{tablenotes}[flushleft]
 \footnotesize\setstretch{1.08}
 \item Dependent variable: manufacturing investment log growth multiplied by 100. HAC standard errors appear in parentheses. Models 1--3 cover 1996--2024; model 4 covers 1997--2024. Newey--West bandwidth is one annual lag. Every model includes an intercept. Source: author calculations.
@@ -312,21 +289,7 @@ Both axes show residuals from regressions on an intercept, GDP growth, and the 2
 \small\setstretch{1.05}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.25}
-\begin{tabularx}{\linewidth}{@{}>{\hsize=1.90\hsize\linewidth=\hsize}Y >{\hsize=.30\hsize\linewidth=\hsize}C >{\hsize=.65\hsize\linewidth=\hsize}C >{\hsize=1.45\hsize\linewidth=\hsize}C >{\hsize=.70\hsize\linewidth=\hsize}C@{}}
-\toprule
-\textbf{Specification} & \textbf{N} & \textbf{Estimate} & \textbf{95 percent CI} & \textbf{p-value}\\
-\midrule
-Equipment investment & $29$ & $-0.337$ & $[-1.609, 0.935]$ & $0.590$\\
-Intellectual property investment & $29$ & $0.065$ & $[-0.600, 0.730]$ & $0.842$\\
-1996--2007 sample & $12$ & $-0.746$ & $[-1.287, -0.205]$ & $0.012$\\
-1996--2007 excluding 2000 & $11$ & $-0.712$ & $[-1.086, -0.337]$ & $0.002$\\
-2001--2007 sample & $7$ & $-0.231$ & $[-2.080, 1.619]$ & $0.747$\\
-Exclude 2020 and 2021 & $27$ & $-0.453$ & $[-1.460, 0.555]$ & $0.363$\\
-HAC with two annual lags & $29$ & $-0.263$ & $[-1.184, 0.659]$ & $0.562$\\
-Add lagged investment growth & $28$ & $-0.288$ & $[-1.161, 0.585]$ & $0.502$\\
-End sample in 2023 & $28$ & $-0.277$ & $[-1.150, 0.595]$ & $0.518$\\
-\bottomrule
-\end{tabularx}
+\input{tables/sensitivity_table.tex}
 \begin{tablenotes}[flushleft]
 \footnotesize\setstretch{1.08}
 \item Rows for equipment and intellectual property replace the outcome in model 3. Short pre-2008 samples and the sample excluding 2020--2021 include GDP growth and an intercept, with no pandemic indicator. Other rows modify model 3 as named. HAC uses actual calendar-year gaps when years are omitted. Source: author calculations.
@@ -437,15 +400,10 @@ Spain's experience does not support a single unconditional claim that housing we
 
 \setcounter{equation}{0}
 
-\section{Reproducibility and inference}\label{app:A}
+\section{Calendar-gap Newey--West covariance}\label{app:A}
 
-The accompanying replication package archives the original Eurostat JSON responses and FRED quarterly CSV, the processed annual dataset, both Python scripts, and all reported regression and summary outputs. Running \texttt{analyze.py} reconstructs the regressions and both figures from the archived observations. The companion script \texttt{verify\_analysis.py} uses \texttt{statsmodels} to calculate the regression results and diagnostics in Appendix~\ref{app:B}. The core requirements are Python 3 with \texttt{numpy}, \texttt{pandas}, \texttt{scipy}, and \texttt{matplotlib}; the verification script additionally requires \texttt{statsmodels}. Exact software versions and source URLs are recorded in the package. It does not contain restricted bank or firm microdata.
+The exclusion samples retain the original calendar spacing between observations. With a one-year bandwidth, 2019 and 2021 do not form a lag-one pair when 2020 is omitted. Treating the remaining rows as consecutive would instead introduce a covariance term between observations two years apart.
 
-
-For each model, the OLS coefficient vector is
-\begin{equation}\label{eq:ols}
-\widehat{\bm\beta}=(\mathbf X^{\top}\mathbf X)^{-1}\mathbf X^{\top}\mathbf y.
-\end{equation}
 Let $\mathcal T$ denote the set of included calendar years and let
 $\mathbf s_t=\mathbf x_t\widehat u_t$ be the score contribution for year $t$.
 The Newey--West covariance matrix is
@@ -466,10 +424,7 @@ Here $n$ is the number of included observations, $k$ includes the intercept, and
 the annual bandwidth. Cross-products use actual calendar distances when years are
 omitted. Confidence intervals use the $t$ critical value with $n-k$ degrees of freedom.
 
-
-
-The coefficients discussed from the microeconomic literature are reproduced in Table~\ref{tab:5} with their original sources and units.
-
+The function \texttt{calendar\_hac\_meat} in \texttt{models.py} forms score cross-products only when the calendar-year distance equals the specified lag. The independent implementation in \texttt{verify\_analysis.py} inserts zero score rows for omitted years before applying the Bartlett kernel in \texttt{statsmodels}. These zero rows affect the lagged cross-products only: the OLS fit and the $n/(n-k)$ correction continue to use the observed regression sample, not the padded calendar length.
 
 \clearpage
 \section{Time series diagnostics}\label{app:B}
@@ -485,15 +440,7 @@ Table~\ref{tab:6} reports augmented Dickey--Fuller tests with an intercept, no d
 \small\setstretch{1.05}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.25}
-\begin{tabularx}{\linewidth}{@{}>{\hsize=2.05\hsize\linewidth=\hsize}Y >{\hsize=.35\hsize\linewidth=\hsize}C >{\hsize=.85\hsize\linewidth=\hsize}C >{\hsize=.75\hsize\linewidth=\hsize}C@{}}
-\toprule
-\textbf{Growth series} & \textbf{N} & \textbf{ADF statistic} & \textbf{p-value}\\
-\midrule
-Manufacturing investment growth & $27$ & $-3.096$ & $0.027$\\
-Real house price growth & $27$ & $-2.352$ & $0.156$\\
-Real GDP growth & $27$ & $-3.337$ & $0.013$\\
-\bottomrule
-\end{tabularx}
+\input{tables/diagnostics_table.tex}
 \begin{tablenotes}[flushleft]
 \footnotesize\setstretch{1.08}
 \item The tests include an intercept and one lag, without a deterministic trend. Source: author calculations.
@@ -508,7 +455,7 @@ Real house price growth has an ADF statistic of $-2.352$ and an approximate p-va
 For model 3, Ljung--Box residual portmanteau tests at horizons one and two give p-values of 0.346 and 0.641 \citep{ljung1978}. The tests use no fitted ARMA parameter adjustment and do not reject at conventional levels. The 2020 indicator has leverage equal to one for its sole nonzero observation and fits that observation exactly.
 
 
-The implementation in \texttt{statsmodels} inserts zero score contributions at omitted calendar dates before calculating the lagged covariance terms. This preserves the annual bandwidth in samples with missing years.
+
 
 
 \end{document}
