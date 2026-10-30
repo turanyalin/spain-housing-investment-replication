@@ -1,14 +1,14 @@
-# Spain housing and manufacturing investment
+# EU housing and manufacturing investment
 
-Replication code and archived public data for **House Prices, Bank Credit, and Manufacturing Investment in Spain**, by Turan Celik (29 October 2026).
+Replication code and archived public data for **House Prices and Manufacturing Investment in the European Union: Panel Evidence and the Spanish Credit Channel**, by Turan Celik (30 October 2026).
 
-This repository reconstructs the annual dataset, four main OLS regressions, nine sensitivity specifications, statistical diagnostics, and two figures used in the manuscript. It includes the LaTeX manuscript and bibliography. The analysis runs from archived data without downloading new observations or requiring an API key.
+The main empirical analysis is an EU27 country-by-year panel with **656 baseline observations over 1996–2024**, country and year fixed effects, and country-and-year clustered standard errors. Spain remains the institutional case study and microdata synthesis. The original 29-observation Spain analysis is preserved alongside the panel.
 
-For a short code sample and module guide, start with [the pipeline walkthrough](docs/code_walkthrough.md).
+The [code walkthrough](docs/code_walkthrough.md) shows the ingestion, estimation, table, and figure workflow. All numerical analysis uses the archived public-source responses; no API key or live download is needed after installing Python dependencies.
 
-## Quick start
+## Reproduce everything
 
-Use **Python 3.12**. Run these commands from the repository root:
+Use **Python 3.12** and run from the repository root:
 
 ```bash
 git clone https://github.com/turanyalin/spain-housing-investment-replication.git
@@ -17,66 +17,60 @@ python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 python reproduce.py
+python -m unittest discover -s tests -v
 ```
 
-On Windows, create the environment with `py -3.12 -m venv .venv` and activate it with `.venv\Scripts\Activate.ps1` in PowerShell. You can also download and extract the repository ZIP instead of using Git.
+On Windows, create the environment with `py -3.12 -m venv .venv` and activate `.venv\Scripts\Activate.ps1` in PowerShell. A repository ZIP also works in place of Git.
 
-The reproduction command checks the archived input and analysis-code SHA-256 hashes, regenerates the analysis and figures, independently checks all 13 regressions with statsmodels, generates the four empirical manuscript tables, and compares numerical results and diagnostics with the supplied reference outputs. A successful run ends with `Replication passed: 13 models, independent statistical audit, and archived numerical outputs verified.`
+`reproduce.py` validates archived input and code hashes, regenerates the 12 EU panel specifications and the 13 Spain specifications, runs independent statistical checks, compares numerical results to the supplied references, and generates manuscript tables and figures. Its success message lists both analyses. Installing packages requires internet access; the analysis itself reads local files. Generated output files are overwritten on each run.
 
-Installing Python packages requires internet access. The analysis itself uses local files only. Keep the supplied `replication/results.json` and `replication/submission_statistical_checks.json` for the first run; these are the numerical references checked by the runner. Generated files are overwritten when you rerun the analysis.
+## Main results and coverage
 
-## What is reproduced
+The EU baseline has 27 countries, 29 distinct regression years, and 656 observations: **22.6 times** the original Spain sample. It is an unbalanced panel of the current EU27 cohort followed historically, including pre-accession years. Each house-price annual mean requires four observed quarters, and growth and lags preserve missing calendar years. See the [coverage CSV](panel/output/country_coverage.csv) for country-specific starts, ends, and omitted years.
 
-The sample contains annual levels for Spain in **1995–2024** and log growth rates for **1996–2024**. The largest regression sample has 29 observations; models with lags or restricted time windows use fewer.
+The house-price coefficient is approximately **0.010** after controlling for real GDP growth, with two-way clustered SE **0.173** and 95% CI **[-0.347, 0.366]**. The larger panel changes the empirical conclusion: the conditional total-manufacturing estimate is near zero. Country exclusions, time windows, and a balanced 2010–2024 sample are reported rather than selecting a preferred significant specification.
 
-| Output | Location |
+Fixed effects absorb persistent country differences and common annual shocks. They do not establish causal identification. Observations within countries and years are dependent; the numerical increase in observations is not an equivalent increase in independent observations.
+
+## Output guide
+
+| Location | Contents |
 | --- | --- |
-| Annual levels, growth rates, controls, and lags | [`replication/analysis_data.csv`](replication/analysis_data.csv) |
-| All model results, covariance matrices, fitted values, and residuals | [`replication/results.json`](replication/results.json) |
-| Coefficients, HAC standard errors, confidence intervals, and p-values | [`replication/regression_results.csv`](replication/regression_results.csv) |
-| Descriptive statistics | [`replication/summary_statistics.csv`](replication/summary_statistics.csv) |
-| Independent regression checks and time-series diagnostics | [`replication/submission_statistical_checks.json`](replication/submission_statistical_checks.json) |
-| Generated empirical table snippets | [`tables/`](tables/README.md) |
-| PNG figures | `replication/figure1.png`, `replication/figure2.png` |
-| Vector figures used in the manuscript | `figures/figure1.pdf`, `figures/figure2.pdf` |
-
-The code also reports growth by historical phase, leave-one-year-out estimates, and the Frisch–Waugh–Lovell coefficient check. See the [analysis guide](replication/README.md) for model definitions and the [data guide](replication/DATA.md) for sources, units, transformations, and reuse information.
+| [`panel/raw/`](panel/README.md) | Four Eurostat JSON responses, 27 BIS/FRED quarterly CSV files, and their URL/hash manifest |
+| [`panel/output/panel_data.csv`](panel/output/panel_data.csv) | Complete country-year calendar, levels, growth, lags, source flags, and baseline eligibility |
+| [`panel/output/panel_results.json`](panel/output/panel_results.json) | All 12 panel fits, exact model samples, slopes, focal covariance matrices, summaries, and country influence |
+| [`panel/output/panel_regressions.csv`](panel/output/panel_regressions.csv) | Tidy coefficients, standard errors, intervals, p-values, and cluster counts |
+| [`panel/output/verification.json`](panel/output/verification.json) | Independent fixed-effects and covariance checks for each panel model |
+| [`panel/output/`](panel/README.md) | Generated panel LaTeX tables, numerical-text macros, and vector figures |
+| [`replication/`](replication/README.md) | Preserved Spain data, specifications, calendar-gap HAC, and outputs |
+| [`tables/`](tables/README.md), [`figures/`](figures/README.md) | Generated Spain benchmark tables and figures |
+| [`tests/`](tests/test_panel.py) | Calendar-gap, ingestion, panel-merge, within-transformation, and cluster-covariance checks |
 
 ## Build the paper
 
-Install a TeX distribution with `latexmk`, pdfLaTeX, and BibTeX, then run:
+Install a TeX distribution with pdfLaTeX, BibTeX, and `latexmk`:
 
 ```bash
+python reproduce.py
 latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-This creates `main.pdf`. Alternatively run `pdflatex main`, `bibtex main`, `pdflatex main`, and `pdflatex main`, in that order. On Overleaf, upload the repository ZIP and select `main.tex` as the main document. The supplied `main.bbl` is a prebuilt bibliography; `references.bib` is the editable source.
+This creates `main.pdf`. `make paper` combines these steps; `make test` runs the tests. The committed generated snippets also allow direct LaTeX compilation without Python. For Overleaf, upload a repository ZIP and select `main.tex`.
 
-Python regenerates the figures, datasets, regression results, diagnostics, and empirical table snippets. `main.tex` includes the generated snippets for Tables 2, 3, 4, and 6. Source definitions (Table 1), published microeconomic estimates (Table 5), and numerical prose remain editable manuscript text. After changing data or specifications, regenerate the outputs and review the discussion before rebuilding the paper.
+The main manuscript loads the generated panel tables, coverage table, numerical macros, and figures. The Spain benchmark table and historical figure are also generated. Literature estimates, source descriptions, and much of the numerical discussion remain manuscript text, so any change to data or specifications requires editorial review.
 
-## Repository guide
+## Refreshing sources
 
-| Path | Purpose |
-| --- | --- |
-| [`reproduce.py`](reproduce.py) | Reproduce and validate the analysis in one command |
-| [`requirements.txt`](requirements.txt) | Entry point to the pinned Python environment |
-| [`replication/`](replication/README.md) | Modular code, archived inputs, and reference outputs |
-| [`figures/`](figures/README.md) | Vector figure files |
-| [`tables/`](tables/README.md) | Generated LaTeX table snippets |
-| [`tests/`](tests/test_pipeline.py) | Calendar-gap and ingestion regression checks |
-| [`docs/`](docs/README.md) | Checks, troubleshooting, and manuscript notes |
-| [`main.tex`](main.tex) | Editable manuscript |
-| [`references.bib`](references.bib) | Bibliography |
-| [`Makefile`](Makefile) | Optional convenience commands |
+Exact reproduction uses the archived snapshot. To fetch a new vintage without overwriting it:
 
-## Interpretation and scope
+```bash
+python -m panel.download --output-dir /path/to/new-snapshot
+```
 
-These aggregate regressions describe associations. They do not identify a causal effect of house prices or directly reproduce the restricted bank- or firm-level microdata analyses discussed in the paper. The full-sample conditional house-price coefficient is imprecise, and the small sample makes inference sensitive to specification and time window. Some source observations are flagged as provisional. No interpolation or synthetic observations are used.
-
-Reproducing the archived snapshot can reproduce the supplied estimates. Downloading the same source URLs later may produce different estimates because statistical agencies revise their data.
+`--refresh` explicitly replaces an existing snapshot. Downloading fresh observations may change coverage and estimates; update the source manifest, references, manuscript, and tests as a deliberate new release. Do not change input hashes merely to suppress a reproduction error. See the [panel guide](panel/README.md) for filters and inference conventions.
 
 ## Reuse and citation
 
-The Python code, repository documentation, and build configuration are provided under the [MIT License](LICENSE). The manuscript, bibliography, and third-party data are excluded from that software license; the underlying data remain subject to their providers' terms. Preserve the attribution in [`replication/DATA.md`](replication/DATA.md) and [`replication/source_manifest.json`](replication/source_manifest.json).
+The Python code, documentation, and build configuration use the [MIT License](LICENSE). Third-party data, the manuscript, bibliography, and data-derived files retain their respective rights. Preserve attribution to Eurostat, national sources, the BIS Residential Property Price database, and FRED; see the exact archived URLs and provider terms linked in the [panel guide](panel/README.md).
 
-If you use this work, cite the author, manuscript title, year, and repository commit. GitHub citation metadata is supplied in [`CITATION.cff`](CITATION.cff). Include the exact model, data snapshot, environment, and command when reporting a reproduction problem.
+Use [`CITATION.cff`](CITATION.cff) and cite the repository commit used. The repository URL is retained for continuity with the original Spain release.

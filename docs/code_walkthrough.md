@@ -1,29 +1,28 @@
-# Code sample: from archived observations to manuscript outputs
+# Code sample: source data to manuscript outputs
 
-Start with [`replication/analyze.py`](../replication/analyze.py). Its main function shows the entire analysis workflow:
+The main EU workflow is [`panel/run.py`](../panel/run.py):
 
 ```python
-data, source_flags = build_dataset(ROOT)
-results = estimate_models(data, source_flags)
-write_results(data, results, ROOT)
-make_figures(data, results["models"], ROOT)
+data, coverage = build_panel(ROOT / "raw")
+results = estimate_panel(data)
+write_outputs(data, coverage, results, ROOT / "output")
+make_figures(data, coverage, results, ROOT / "output")
 ```
 
-The numerical work is separated from file ingestion and presentation:
+Each step has one responsibility:
 
 | Module | Responsibility |
 | --- | --- |
-| [`data.py`](../replication/data.py) | Select Eurostat JSON-stat series, validate quarterly coverage and positive annual levels, merge sources by year, and construct growth rates and lags. |
-| [`models.py`](../replication/models.py) | Define the 13 specifications, estimate models, preserve calendar gaps in HAC inference, and collect sensitivity summaries. |
-| [`reporting.py`](../replication/reporting.py) | Export tidy CSV and complete JSON results; render the empirical LaTeX table snippets from those results. |
-| [`figures.py`](../replication/figures.py) | Generate PNG and vector PDF figures from the annual dataset and model estimates. |
-| [`verify_analysis.py`](../replication/verify_analysis.py) | Independently check results with statsmodels and calculate the time-series diagnostics. |
-| [`render_tables.py`](../replication/render_tables.py) | Read the result and diagnostic JSON files and write the four empirical table snippets included by `main.tex`. |
+| [`panel/download.py`](../panel/download.py) | Retrieve the Eurostat and BIS/FRED snapshot explicitly and record URLs and hashes. |
+| [`panel/data.py`](../panel/data.py) | Decode source dimensions, validate quarters, merge country/year keys, preserve missing calendar years, and construct growth and lags. |
+| [`panel/models.py`](../panel/models.py) | Estimate country/year fixed effects with statsmodels and country-and-year clustered inference; define all sensitivity samples. |
+| [`panel/reporting.py`](../panel/reporting.py) | Export tidy results, generate LaTeX tables and numerical macros, and draw coverage and coefficient figures. |
+| [`panel/verify.py`](../panel/verify.py) | Independently verify unbalanced within slopes and clustered covariance. |
 
-`data.py` rejects ambiguous source selections, incomplete or duplicated house-price quarters, and missing or nonpositive annual levels. It retains Eurostat status flags alongside the observations. The raw responses remain unchanged.
+The panel has 656 baseline observations from all 27 countries. Complete calendars prevent accidentally calculating a two-year change as a one-year growth rate. Country grouping prevents lags from leaking between countries. House-price annual means require all four quarters.
 
-`calendar_hac_meat` is the specialized numerical component. Pairing observations by their actual year distance ensures that removing 2020 does not turn 2019 and 2021 into adjacent years. The independent check pads missing years with zero scores before calling statsmodels. Unit tests cover this gap, multiple bandwidths, consecutive-year equivalence, and invalid calendar ordering.
+The main estimator uses explicit fixed-effect indicators and a library covariance routine. Alternating projections and score aggregation are kept in the independent verification module rather than dominating the main code sample.
 
-The paper includes the generated tables for descriptive statistics, main regressions, sensitivity estimates, and ADF diagnostics. Source definitions and published microeconomic estimates are maintained separately. Numerical prose still requires editorial review after any change to the data or model specifications.
+The original Spain pipeline remains in [`replication/analyze.py`](../replication/analyze.py), with separate ingestion, models, reporting, and figure modules. Its specialized `calendar_hac_meat` preserves actual year distances when a national time-series sample omits years.
 
-Run the complete pipeline with `python reproduce.py`; run the focused checks with `python -m unittest discover -s tests -v`. The code sample uses the archived Spain analysis. A country-by-year panel would require a new data-coverage assessment, model specification, and inference design.
+`python reproduce.py` rebuilds both analyses and their manuscript outputs. The empirical tables and panel baseline text values are generated; source descriptions, literature estimates, and other numerical prose still require editorial review after changes to the analysis.

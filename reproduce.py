@@ -8,6 +8,7 @@ import math
 from pathlib import Path
 import subprocess
 import sys
+import os
 
 ROOT = Path(__file__).resolve().parent
 REPLICATION = ROOT / "replication"
@@ -54,6 +55,19 @@ def main() -> None:
                 )
     print("Archived data and analysis-code hashes verified.", flush=True)
 
+    panel_manifest = json.loads((ROOT / "panel/source_manifest.json").read_text())
+    raw_manifest = ROOT / "panel/raw/download_manifest.json"
+    if (
+        hashlib.sha256(raw_manifest.read_bytes()).hexdigest()
+        != panel_manifest["raw_manifest_sha256"]
+    ):
+        raise ValueError("Panel download-manifest hash mismatch")
+    for filename, expected_hash in panel_manifest["code_sha256"].items():
+        actual_hash = hashlib.sha256((ROOT / filename).read_bytes()).hexdigest()
+        if actual_hash != expected_hash:
+            raise ValueError(f"Panel code hash mismatch: {filename}")
+    panel_reference = json.loads((ROOT / "panel/output/panel_results.json").read_text())
+
     output_names = ("results.json", "submission_statistical_checks.json")
     references = {
         name: json.loads((REPLICATION / name).read_text()) for name in output_names
@@ -84,9 +98,31 @@ def main() -> None:
         path = ROOT / "tables" / filename
         if not path.is_file() or not path.stat().st_size:
             raise ValueError(f"Missing or empty generated table: {path}")
+
+    environment = os.environ.copy()
+    environment["OPENBLAS_NUM_THREADS"] = "1"
+    environment["OMP_NUM_THREADS"] = "1"
+    for module in ("panel.run", "panel.verify"):
+        subprocess.run(
+            [sys.executable, "-m", module], cwd=ROOT, env=environment, check=True
+        )
+    actual_panel = json.loads((ROOT / "panel/output/panel_results.json").read_text())
+    compare(actual_panel, panel_reference, "panel_results.json")
+    for filename in (
+        "main_table.tex",
+        "sensitivity_table.tex",
+        "summary_table.tex",
+        "coverage_table.tex",
+        "estimates.tex",
+        "coverage.pdf",
+        "coefficients.pdf",
+    ):
+        path = ROOT / "panel/output" / filename
+        if not path.is_file() or not path.stat().st_size:
+            raise ValueError(f"Missing or empty panel output: {path}")
     print(
-        "\nReplication passed: 13 models, independent statistical audit, "
-        "and archived numerical outputs verified.",
+        "\nReplication passed: 12 EU panel models, 13 Spain models, independent "
+        "statistical checks, and archived numerical outputs verified.",
         flush=True,
     )
 

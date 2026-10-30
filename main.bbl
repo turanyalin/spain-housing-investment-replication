@@ -1,4 +1,4 @@
-\begin{thebibliography}{14}
+\begin{thebibliography}{13}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -12,13 +12,14 @@ Saleem Bahaj, Angus Foulis, and Gabor Pinter.
   2225--2270, 2020.
 \newblock \doi{10.1257/aer.20180649}.
 
-\bibitem[{Bank for International Settlements}(2026)]{bis2026}
+\bibitem[{Bank for International Settlements}(2026)]{bispanel2026}
 {Bank for International Settlements}.
-\newblock Residential property price database: {Spain} real residential
-  property prices.
-\newblock National sources and BIS, distributed by FRED as QESR628BIS, 2026.
-\newblock URL \url{https://fred.stlouisfed.org/series/QESR628BIS}.
-\newblock Series Q.ES.R.628; retrieved 29 October 2026.
+\newblock Selected residential property prices.
+\newblock BIS selected real residential property price indices, distributed by
+  FRED, 2026.
+\newblock URL \url{https://data.bis.org/topics/RPP}.
+\newblock EU27 cohort; quarterly CPI-deflated indices; country-specific query
+  URLs in the archived source manifest; downloaded 30 October 2026 UTC.
 
 \bibitem[Basco et~al.(2025)Basco, L{\'o}pez-Rodr{\'i}guez, and
   Moral-Benito]{basco2025}
@@ -29,6 +30,13 @@ Sergi Basco, David L{\'o}pez-Rodr{\'i}guez, and Enrique Moral-Benito.
   2025.
 \newblock \doi{10.1093/ej/ueae075}.
 \newblock Accepted manuscript: \url{https://hdl.handle.net/2445/217504}.
+
+\bibitem[Cameron et~al.(2011)Cameron, Gelbach, and Miller]{cameron2011}
+A.~Colin Cameron, Jonah~B. Gelbach, and Douglas~L. Miller.
+\newblock Robust inference with multiway clustering.
+\newblock \emph{Journal of Business \& Economic Statistics}, 29\penalty0
+  (2):\penalty0 238--249, 2011.
+\newblock \doi{10.1198/jbes.2010.07136}.
 
 \bibitem[Chakraborty et~al.(2018)Chakraborty, Goldstein, and
   MacKinlay]{chakraborty2018}
@@ -46,28 +54,21 @@ Thomas Chaney, David Sraer, and David Thesmar.
   2381--2409, 2012.
 \newblock \doi{10.1257/aer.102.6.2381}.
 
-\bibitem[Dickey and Fuller(1979)]{dickey1979}
-David~A. Dickey and Wayne~A. Fuller.
-\newblock Distribution of the estimators for autoregressive time series with a
-  unit root.
-\newblock \emph{Journal of the American Statistical Association}, 74\penalty0
-  (366a):\penalty0 427--431, 1979.
-\newblock \doi{10.1080/01621459.1979.10482531}.
-
 \bibitem[{Eurostat}(2026{\natexlab{a}})]{eurostatgdp}
 {Eurostat}.
 \newblock {GDP} and main components (output, expenditure and income).
 \newblock Dataset nama\_10\_gdp, 2026{\natexlab{a}}.
-\newblock Spain; B1GQ; CLV20\_MEUR; retrieved 29 October 2026;
-  \doi{10.2908/nama_10_gdp}.
+\newblock EU27 cohort and Spain; B1GQ; CLV20\_MEUR; snapshots downloaded 29--30
+  October 2026; \doi{10.2908/nama_10_gdp}.
 
 \bibitem[{Eurostat}(2026{\natexlab{b}})]{eurostatinv}
 {Eurostat}.
 \newblock Capital formation by industry ({NACE Rev. 2}) and detailed asset
   type.
 \newblock Dataset nama\_10\_a64\_p5, 2026{\natexlab{b}}.
-\newblock Spain manufacturing GFCF; unit CLV20\_MEUR; assets N11G, N11MG,
-  N117G; retrieved 29 October 2026; \doi{10.2908/nama_10_a64_p5}.
+\newblock EU27 cohort and Spain manufacturing GFCF; unit CLV20\_MEUR; assets
+  N11G, N11MG, N117G; snapshots downloaded 29--30 October 2026;
+  \doi{10.2908/nama_10_a64_p5}.
 
 \bibitem[{Eurostat}(2026{\natexlab{c}})]{eurostatmeta}
 {Eurostat}.
@@ -93,12 +94,6 @@ Asim~Ijaz Khwaja and Atif Mian.
 \newblock \emph{American Economic Review}, 98\penalty0 (4):\penalty0
   1413--1442, 2008.
 \newblock \doi{10.1257/aer.98.4.1413}.
-
-\bibitem[Ljung and Box(1978)]{ljung1978}
-Greta~M. Ljung and George E.~P. Box.
-\newblock On a measure of lack of fit in time series models.
-\newblock \emph{Biometrika}, 65\penalty0 (2):\penalty0 297--303, 1978.
-\newblock \doi{10.1093/biomet/65.2.297}.
 
 \bibitem[Mart{\'i}n et~al.(2021)Mart{\'i}n, Moral-Benito, and
   Schmitz]{martin2021}

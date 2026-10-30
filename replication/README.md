@@ -1,6 +1,6 @@
-# Analysis and statistical verification
+# Spain reference analysis and statistical verification
 
-This folder separates archived-data ingestion, model estimation, reporting, and figure generation. Start with [`analyze.py`](analyze.py) or the [pipeline walkthrough](../docs/code_walkthrough.md) for the short code sample. Entry-point scripts resolve paths relative to their own files and can be called from the repository root.
+This folder preserves the national Spain analysis alongside the main [EU panel](../panel/README.md). It separates archived-data ingestion, model estimation, reporting, and figure generation. Start with [`analyze.py`](analyze.py) or the [pipeline walkthrough](../docs/code_walkthrough.md) for the short code sample. Entry-point scripts resolve paths relative to their own files and can be called from the repository root.
 
 ## Run the complete replication
 

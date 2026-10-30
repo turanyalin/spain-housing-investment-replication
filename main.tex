@@ -34,44 +34,35 @@
 \clubpenalty=10000
 \widowpenalty=10000
 \displaywidowpenalty=10000
-\hypersetup{pdftitle={House Prices, Bank Credit, and Manufacturing Investment in Spain},
-  pdfauthor={Turan Celik},pdfsubject={Exploratory empirical economics research}}
-\title{\vspace{-1.2em}\LARGE\bfseries House Prices, Bank Credit, and\\Manufacturing Investment in Spain\\[0.55em]
-  \large\normalfont\itshape An exploratory time series analysis and review of microeconomic evidence}
+
+\input{panel/output/estimates.tex}
+\hypersetup{pdftitle={House Prices and Manufacturing Investment in the European Union},
+ pdfauthor={Turan Celik},pdfsubject={EU panel evidence and the Spanish credit channel}}
+\title{\vspace{-1.2em}\LARGE\bfseries House Prices and Manufacturing\\Investment in the European Union\\[0.55em]
+ \large\normalfont\itshape Panel evidence and the Spanish credit channel}
 \author{Turan Celik}
-\date{29 October 2026}
+\date{30 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
-
-
-This paper studies the association between real house price growth and manufacturing investment in Spain and evaluates the bank credit and collateral mechanisms proposed in the literature. It combines a critical synthesis of microeconomic research with an original annual time series analysis for 1996--2024. The principal outcome is real gross fixed capital formation in manufacturing, with equipment and intellectual property investment examined separately. Residential property prices are measured using the BIS real house price index. Ordinary least squares estimates with Newey--West standard errors show that a one percentage point increase in real house price growth is associated with 0.263 percentage points lower manufacturing investment growth after conditioning on GDP growth and a 2020 indicator. The 95 percent confidence interval, $-1.157$ to 0.632, is wide and includes zero. A negative association in the 1996--2007 subsample is sensitive to the time window: a specification restricted to 2001--2007 is highly imprecise. Published Spanish microdata studies provide more direct evidence of early credit crowding out followed by later expansion and of capital misallocation through the collateral channel. The combined evidence suggests that the relationship between housing and productive investment varies with bank balance sheets, collateral ownership, and the stage of the cycle.
-
-
+This paper studies real house prices and manufacturing investment using an annual panel of the 27 current European Union countries, with Spain as the institutional case study. Combining Eurostat national accounts with BIS residential property prices produces \PanelN{} country-year growth observations over 1996--2024, compared with 29 in the Spain-only analysis. Country and year fixed effects remove persistent national differences and common annual shocks. The house-price coefficient is 0.375 before controlling for national GDP growth and $\PanelBeta$ after that control is included. The latter has a country-and-year clustered standard error of $\PanelSE$ and a 95 percent confidence interval of $[\PanelLower,\PanelUpper]$. The near-zero conditional estimate is similar when Spain is excluded; a balanced 2010--2024 sample also yields an imprecise estimate. Intellectual property investment has a negative coefficient in an exploratory component regression. Spain's aggregate estimates remain sensitive to the time window, while published bank and firm level evidence documents a more specific interaction between housing exposure, credit supply, and collateral. The combined evidence points to heterogeneous financing mechanisms rather than a uniform negative relationship between house prices and productive investment across Europe.
 \end{abstract}
-
-\begin{center}\begin{minipage}{.90\linewidth}\small\setstretch{1.12}\textbf{Keywords:} house prices; manufacturing investment; bank credit; collateral; capital allocation; Spain.
-
-\par\smallskip\textbf{JEL classifications:} E22, E44, G21, G31, R31.\end{minipage}\end{center}
-
+\begin{center}\begin{minipage}{.90\linewidth}\small\setstretch{1.12}
+\textbf{Keywords:} house prices; manufacturing investment; fixed effects; bank credit; Spain.
+\par\smallskip\textbf{JEL classifications:} C23, E22, E44, G21, G31, R31.
+\end{minipage}\end{center}
 \newpage
 
 \section{Introduction}
+A housing boom can change both the amount of finance available to firms and the way it is allocated. Banks may redirect lending toward mortgages and property developers when their funding or capital is constrained. Rising property values can also increase the collateral available to businesses and their owners. These opposing mechanisms make the relationship between housing and investment outside real estate an empirical question.
 
-A housing boom can change both the amount of finance available to firms and the way that finance is allocated. Banks may redirect lending toward mortgages and property developers when their funding or capital is constrained. At the same time, rising property values can increase the collateral available to businesses and their owners. These mechanisms generate opposing predictions for investment outside the housing sector. An economy can also experience higher aggregate investment while allocating capital less efficiently across firms.
+This paper examines that relationship in a country-by-year panel covering all 27 current EU countries. Real manufacturing gross fixed capital formation provides a common outcome outside construction and real estate. The panel combines Eurostat investment and GDP with the BIS real residential property price indices distributed by FRED. Annual levels for 1995--2024 yield \PanelN{} usable growth observations for 1996--2024. Country and year fixed effects distinguish national co-movement from persistent country differences and shared annual conditions.
 
+Spain remains the featured institutional case. Its housing boom, bank balance sheets, and manufacturing firms have been studied using detailed lending and firm accounts. That literature provides evidence about credit allocation and collateral that complements the broader panel. Manufacturing GFCF is an industry measure, rather than investment by the entire nonfinancial corporate sector, and the national house-price index measures property valuation rather than households' net housing wealth.
 
-Spain provides an informative setting because its housing expansion and subsequent correction coincided with large changes in bank lending and business activity. The question requires care, however. House prices, household housing wealth, credit supply, and corporate capital expenditure are different objects. A national house price index does not measure households' property holdings or leverage. Likewise, a rise in business credit does not establish that the resulting investment has a high social return. This paper separates these concepts throughout the analysis.
+The empirical contribution is a harmonized public-data panel, a two-way fixed-effects specification with country-and-year clustered inference, and checks across investment components, countries, time windows, and sample balance. The \PanelMultiple-fold increase over the original 29 observations broadens the evidence beyond one economy. The regressions describe conditional associations; the microeconomic studies supply the research designs used to investigate the financing mechanisms.
 
-
-The empirical question is whether real house price growth is negatively associated with productive investment growth in Spain, and how that association should be interpreted in light of bank level and firm level evidence. Manufacturing investment provides a measurable outcome outside construction and real estate. It is narrower than investment by all nonfinancial corporations and includes investment by every institutional sector operating in manufacturing. The analysis therefore concerns productive investment in a specific industry rather than the full corporate sector.
-
-
-Using public annual data, the paper estimates four main specifications and examines how the results vary across investment components, lag structures, sample windows, and the provisional endpoint. The aggregate regressions describe conditional associations. Evidence on the bank lending and collateral mechanisms comes from the bank and firm level studies reviewed alongside them.
-
-
-The principal finding is a negative but imprecise conditional estimate in the full sample. The pre-2008 association is more negative, while a seven-year boom-only sample yields a much less precise estimate. The microeconomic literature helps explain this variation by showing how bank constraints, collateral ownership, and the stage of the cycle shape firms' access to finance.
-
+The main result changes with the broader evidence. The house-price coefficient falls from 0.375 to $\PanelBeta$ after including GDP growth. Its interval includes both negative and positive associations. Removing any one country leaves the conditional point estimate close to zero. The Spanish case therefore helps interpret differences in mechanisms and timing, rather than serving as the basis for a general European crowding-out claim.
 
 \section{Literature and the Spanish setting}
 
@@ -128,184 +119,137 @@ In equation~\eqref{eq:3}, $\Pi$ denotes accounting profit after credit losses an
 Three hypotheses follow. First, housing demand can displace non-housing lending when bank capital is scarce. Second, the effect can weaken as bank balance sheets improve. Third, collateral appreciation can increase investment disproportionately at property-rich firms. National investment and house price data summarize the net co-movement implied by these channels. Assessing misallocation additionally requires evidence about returns or productivity across firms.
 
 
+
 \section{Data and measurement}
+\subsection{Sources, cohort, and calendar alignment}
+The target cohort is the 27 countries belonging to the EU at the time of this study. They are followed retrospectively over 1995--2024, including years before some countries joined the Union. This is a geographic cohort definition, not a treatment based on EU accession. The baseline regression uses \PanelCountries{} countries and \PanelYears{} distinct years. Later starts in the house-price series and gaps in national accounts make the panel unbalanced; Appendix~\ref{app:coverage} reports each country's usable years and observation count.
 
-The empirical dataset contains annual levels for Spain from 1995 through 2024. Growth transformations generate 29 observations for 1996--2024; lagged specifications use 28. The endpoint is fixed at 2024 to maintain a common historical window. Source responses were retrieved on 29 October 2026 and are archived with the analysis. Eurostat marks the 2024 investment and GDP observations as provisional.
-
-
-\begin{table}[!htbp]
-\centering
+\begin{table}[!htbp]\centering
 \begin{threeparttable}
-\caption{Data sources and variable definitions}
-\label{tab:1}
-\small\setstretch{1.05}
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.25}
-\begin{tabularx}{\linewidth}{@{}>{\hsize=.60\hsize\linewidth=\hsize}Y >{\hsize=.96\hsize\linewidth=\hsize}Y >{\hsize=1.44\hsize\linewidth=\hsize}Y@{}}
+\caption{Data sources and variable definitions}\label{tab:1}
+\small\setstretch{1.05}\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.22}
+\begin{tabularx}{\linewidth}{@{}Y Y Y@{}}
 \toprule
 \textbf{Variable} & \textbf{Source and selection} & \textbf{Measurement}\\
 \midrule
-Manufacturing investment & Eurostat \texttt{nama\_10\_a64\_p5}; ES; C; \texttt{P51G}; \texttt{N11G} & Annual GFCF in manufacturing; chain linked volumes in million euros at 2020 reference levels\\
-Equipment investment & Same dataset; asset \texttt{N11MG} & Manufacturing machinery and equipment including weapons systems\\
+Manufacturing investment & Eurostat \texttt{nama\_10\_a64\_p5}; NACE C; \texttt{P51G}; asset \texttt{N11G} & Annual manufacturing GFCF in chain-linked volumes\\
+Equipment investment & Same dataset; asset \texttt{N11MG} & Manufacturing machinery and equipment, including weapons systems\\
 Intellectual property investment & Same dataset; asset \texttt{N117G} & Manufacturing intellectual property products\\
-Real GDP & Eurostat \texttt{nama\_10\_gdp}; ES; \texttt{B1GQ} & Chain linked volumes in million euros at 2020 reference levels\\
-Real house prices & BIS via FRED; \texttt{QESR628BIS} & CPI-deflated residential price index; annual mean of four quarterly observations\\
-Pandemic indicator & Calendar year & Equals one in 2020 and zero otherwise\\
-\bottomrule
-\end{tabularx}
-\begin{tablenotes}[flushleft]
-\footnotesize\setstretch{1.08}
-\item All Eurostat series use unit \texttt{CLV20\_MEUR}. NACE section C denotes manufacturing. BIS series Q.ES.R.628 is not seasonally adjusted and is indexed to 2010 = 100. Sources: \citet{eurostatgdp,eurostatinv} and \citet{bis2026}.
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
-\FloatBarrier
+Real GDP & Eurostat \texttt{nama\_10\_gdp}; \texttt{B1GQ} & Annual chain-linked volume GDP\\
+Real house prices & BIS selected residential property prices, via FRED & CPI-deflated index; annual mean of four observed quarters\\
+\bottomrule\end{tabularx}
+\begin{tablenotes}[flushleft]\footnotesize\setstretch{1.08}
+\item The panel uses all 27 country codes in the cohort. Eurostat frequency is annual and unit is \texttt{CLV20\_MEUR}. Greece's Eurostat code EL is matched to GR in the BIS/FRED identifier. Sources: \citet{eurostatinv,eurostatgdp,bispanel2026}.
+\end{tablenotes}\end{threeparttable}\end{table}\FloatBarrier
 
-Manufacturing gross fixed capital formation measures acquisitions less disposals of produced fixed assets used in production. It does not measure research productivity, project returns, or a firm's financing source. Manufacturing includes a broad range of activities and omits market services. Equipment and intellectual property are examined within the same industry, avoiding a comparison between manufacturing totals and investment components for the entire economy. The equipment series includes weapons systems under the national accounts classification.
+Eurostat levels use chain-linked volumes in millions of euros at 2020 reference levels. Growth rates provide the common scale across countries; the level magnitudes are not pooled as comparable investment propensities. The main outcome includes every institutional sector operating in manufacturing and excludes market services. Equipment and intellectual property are measured within that same industry. Chain-linked components are generally nonadditive outside the reference period \citep{eurostatmeta}.
 
-
-The house price series covers new and existing dwellings and is deflated by consumer prices. Each annual observation averages all four quarters. Changes in this index are used as a proxy for residential collateral valuation, not as a direct measure of household net housing wealth. Investment and GDP are already expressed in real volume terms. Their components are not added or subtracted because chain linked volumes are generally nonadditive outside the reference period \citep{eurostatmeta}.
-
+For each country, the house-price level is the arithmetic mean of four quarterly observations. A year with fewer than four observed quarters is left missing. Source series are merged onto a complete country-year calendar before computing growth and lags, so a missing year cannot be bridged by treating separated observations as consecutive. The panel source responses were downloaded on 30 October 2026 UTC; the Spain case retains the 29 October archive. The overlapping Spain levels are identical. Source status flags, including provisional values and breaks, remain in the dataset.
 
 \begin{equation}\label{eq:4}
-g_t^x=100\left(\ln X_t-\ln X_{t-1}\right)
+g_{it}^{x}=100\left(\ln X_{it}-\ln X_{i,t-1}\right).
 \end{equation}
+Equation~\eqref{eq:4} defines percentage points of log growth. The first possible growth year is 1996. A lagged growth regressor requires a further observed prior year. Investment and GDP are already in real volume terms, while the BIS house-price series is CPI-deflated. Country-specific index base years therefore have no effect on these growth transformations.
 
-All growth rates use equation~\eqref{eq:4}, so the reported units are percentage points of log growth. These approximate ordinary percentage changes for small movements; the approximation becomes less accurate during large contractions. This common transformation avoids mixing nominal property appreciation with real capital formation. It also avoids estimating a static regression between trending levels without an explicit cointegration model.
+\subsection{Coverage and descriptive statistics}
+Figure~\ref{fig:coverage} displays the complete-case baseline sample. \PanelFullCountries{} countries contribute all 29 growth observations; others enter later. Bulgaria's final usable baseline year is 2023. Poland begins in 2011 and Czechia in 2009. Each country-year receives equal weight, so countries with longer histories contribute more observations. A balanced 2010--2024 sensitivity sample keeps 25 countries and 375 observations, addressing composition within a common window.
 
+\begin{figure}[!htbp]\centering
+\caption{Country-year coverage of the EU baseline sample}\label{fig:coverage}
+\includegraphics[width=.91\linewidth]{panel/output/coverage.pdf}
+\par\vspace{3pt}\begin{minipage}{.91\linewidth}\footnotesize\setstretch{1.08}
+Dark cells have observed manufacturing investment, real house-price, and real GDP growth. Blank cells indicate missing growth inputs. The 27-country cohort is fixed throughout the historical window. Source: author calculations from the archived Eurostat and BIS/FRED responses.
+\end{minipage}\end{figure}\FloatBarrier
 
-\begin{table}[!htbp]
-\centering
-\begin{threeparttable}
-\caption{Descriptive statistics for annual log growth}
-\label{tab:2}
-\small\setstretch{1.05}
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.25}
-\input{tables/descriptive_table.tex}
-\begin{tablenotes}[flushleft]
-\footnotesize\setstretch{1.08}
-\item Sample: 1996--2024. Growth rates equal 100 times the annual change in natural logarithms. SD is the sample standard deviation. Source: author calculations.
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
-\FloatBarrier
+\begin{table}[!htbp]\centering\begin{threeparttable}
+\caption{Descriptive statistics for the EU baseline growth sample}\label{tab:2}
+\small\setstretch{1.05}\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.22}
+\input{panel/output/summary_table.tex}
+\begin{tablenotes}[flushleft]\footnotesize\setstretch{1.08}
+\item The sample consists of \PanelN{} complete country-year observations over 1996--2024. Growth is 100 times the annual change in natural logarithms. SD is the sample standard deviation. These are pooled descriptive statistics before removing fixed effects. Source: author calculations.
+\end{tablenotes}\end{threeparttable}\end{table}\FloatBarrier
+
+Manufacturing investment growth is substantially more dispersed than GDP growth, and both investment and house prices contain large annual movements. The analysis retains these observed values. The alternative outcomes and leave-one-country-out calculations help assess how component composition and individual national histories influence the estimates.
 
 \section{Econometric specification and inference}
+The baseline specification includes country effects $\alpha_i$ and year effects $\lambda_t$:
+\begin{equation}\label{eq:panel}
+g_{it}^{I}=\alpha_i+\lambda_t+\beta g_{it}^{H}+\gamma g_{it}^{Y}+u_{it}.
+\end{equation}
+Here $I$ denotes manufacturing investment, $H$ real house prices, and $Y$ real GDP. Model 1 omits GDP growth; model 2 is equation~\eqref{eq:panel}; model 3 adds lagged house-price growth:
+\begin{equation}\label{eq:lag}
+g_{it}^{I}=\alpha_i+\lambda_t+\beta g_{it}^{H}+\phi g_{i,t-1}^{H}+\gamma g_{it}^{Y}+u_{it}.
+\end{equation}
+The first two models use the same complete-case sample. Country effects absorb stable differences across national manufacturing sectors and property markets, while year effects absorb shocks shared by all countries in a given year. A separate 2020 dummy would be collinear with the year effects and is therefore unnecessary. All specifications are estimated by unweighted OLS with explicit country and year indicators.
 
-The four main models build from a bivariate relationship to a parsimonious conditional specification. Model 1 regresses manufacturing investment growth on contemporaneous real house price growth. Model 2 adds real GDP growth to account for broad cyclical co-movement. Model 3 adds a 2020 indicator, allowing the pandemic year to have a separate intercept. Model 4 adds lagged house price growth to distinguish immediate from delayed association.
+Standard errors are clustered by country and by year using the additive multiway estimator of \citet{cameron2011}. The country component permits serial dependence within a country; the year component permits contemporaneous dependence across countries. Each component uses its finite-sample correction, counting all estimated fixed-effect parameters. Two-sided p-values and confidence intervals use a $t$ reference distribution with $\min(G_c,G_t)-1$ degrees of freedom, where $G_c$ and $G_t$ are the observed country and year cluster counts. The baseline has \PanelDof{} reference degrees of freedom. Appendix~\ref{app:inference} gives the covariance formula and verification approach.
 
+GDP is jointly determined with investment and can itself respond to the housing cycle. Conditioning on it changes the question from total co-movement to an association net of national cyclical conditions. Fixed effects do not remove country-specific time-varying credit conditions, exports, energy costs, or industry composition. The slope is therefore interpreted as a conditional short-run association rather than a causal effect or a long-run housing-wealth elasticity. Growth transformations and clustered covariance also leave possible structural breaks as a specification concern.
 
-\begin{align}
- g_t^I &= \alpha+\beta g_t^H+\gamma g_t^Y+\delta D_{2020,t}+u_t,\label{eq:5}\\
- g_t^I &= \alpha+\beta g_t^H+\phi g_{t-1}^H+\gamma g_t^Y+\delta D_{2020,t}+u_t.\label{eq:6}
-\end{align}
+The sensitivity analysis changes the outcome, country set, period, and covariance convention. Country singletons created by period restrictions are omitted because they supply no within-country variation. Reported sensitivity intervals and p-values are not adjusted for multiple comparisons. The larger observation count broadens geographic evidence, while inference still depends on only 27 country clusters and at most 29 year clusters.
 
-$I$ denotes manufacturing investment, $H$ real house prices, and $Y$ real GDP. A coefficient $\beta$ of $-0.263$ means that one percentage point higher house price growth is associated with 0.263 percentage points lower investment growth, conditional on the included controls. It is neither the effect of a one euro increase in housing wealth nor a level elasticity estimated from a long-run equilibrium relationship.
-
-
-Parameters are estimated by ordinary least squares. Inference uses Newey--West heteroskedasticity and autocorrelation consistent covariance estimates with a Bartlett kernel and one annual lag \citep{newey1987}. The covariance matrix is multiplied by $n/(n-k)$, where $k$ includes the intercept. Two-sided p-values and 95 percent confidence intervals use a $t$ distribution with $n-k$ degrees of freedom. These are finite-sample conventions applied to an asymptotic covariance estimator; they do not provide exact small-sample inference. A two-lag covariance estimate is reported as a sensitivity check.
-
-
-GDP is an imperfect control. Investment contributes to GDP, and both can respond to the housing cycle. Conditioning on GDP may remove part of a total housing effect or introduce simultaneous relationships. The coefficient is therefore interpreted as a partial association rather than a causal treatment effect. The 2020 indicator absorbs the observation for that year exactly, so its coefficient cannot identify a general pandemic effect. Excluding both 2020 and 2021 provides a complementary check.
-
-
-Appendix~\ref{app:B} reports unit-root and residual diagnostics. A fixed-lag augmented Dickey--Fuller test does not reject a unit root in house price growth at the 5 percent level. Stationarity of that series is therefore uncertain in this short sample. HAC standard errors address a limited form of serial dependence and heteroskedasticity; they do not resolve possible nonstationarity, structural change, or endogeneity. The reported p-values and intervals are exploratory and conditional on the maintained time series assumptions.
-
-
-The short sample favors parsimonious specifications. The sensitivity analysis varies the investment outcome, time window, lag structure, and treatment of the pandemic years. These estimates are considered jointly; the reported p-values are not adjusted for multiple comparisons. Appendix~\ref{app:A} describes how the covariance estimator handles gaps in the annual sample.
-
-
-\clearpage
-\section{Regression results}
-
-\subsection{Descriptive patterns}
-
-\begin{figure}[!htbp]
-\centering
-\caption{House prices and manufacturing investment in Spain}
-\label{fig:1}
-\includegraphics[width=.96\linewidth]{figures/figure1.pdf}
-\par\vspace{3pt}
-\begin{minipage}{.96\linewidth}\footnotesize\setstretch{1.08}
-Sources: Eurostat and national sources, BIS Residential Property Price database, via FRED. The upper panel rebases each series to 2000 = 100. The lower panel shows log growth multiplied by 100. Shading marks 2000--2007 and 2008--2013 for historical orientation.
-\end{minipage}
-\end{figure}
-\FloatBarrier
-
-Figure~\ref{fig:1} shows divergent investment components during the housing boom. Between 2000 and 2007, annual average real house prices rose by 94.6 percent, while real manufacturing GFCF declined by 1.4 percent. Equipment investment rose by 10.1 percent and intellectual property investment by 85.1 percent. These ordinary endpoint percentage changes show that total investment can conceal changes in composition.
-
-
-Manufacturing investment log growth averaged $-1.49$ percentage points in 2001--2003 and 0.78 in 2004--2007, while house price log growth averaged 10.22 and 8.97. Investment was therefore weaker in the early boom even though house prices were rising faster. During 2008--2013, falling house prices accompanied financial distress and weaker economic activity.
-
-
+\section{EU panel results}
 \subsection{Main specifications}
+\begin{table}[!htbp]\centering\begin{threeparttable}
+\caption{EU manufacturing investment growth: country and year fixed effects}\label{tab:3}
+\small\setstretch{1.05}\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.22}
+\input{panel/output/main_table.tex}
+\begin{tablenotes}[flushleft]\footnotesize\setstretch{1.08}
+\item Country-and-year clustered standard errors are in parentheses. Every model includes country and year effects. Models 1 and 2 share the complete-case baseline sample; model 3 additionally requires lagged house-price growth. Within $R^2$ measures the reduction in residual variation relative to a model containing only the two sets of fixed effects. Source: author calculations.
+\end{tablenotes}\end{threeparttable}\end{table}\FloatBarrier
 
-\begin{table}[!htbp]
-\centering
-\begin{threeparttable}
-\caption{Manufacturing investment growth: OLS estimates}
-\label{tab:3}
-\small\setstretch{1.05}
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.25}
+Without national GDP growth, the house-price coefficient is 0.375, with a clustered standard error of 0.202 and p-value of 0.075. Adding GDP growth reduces it to $\PanelBeta$ (standard error $\PanelSE$; p-value $\PanelP$). The baseline interval of $[\PanelLower,\PanelUpper]$ is centered close to zero. Thus the positive co-movement remaining after country and year effects largely disappears when national GDP growth is included.
+
+A ten percentage point increase in house-price log growth corresponds to roughly 0.10 percentage points higher manufacturing investment log growth at the baseline point estimate. The associated interval runs from 3.47 points lower to 3.66 points higher. The GDP coefficient is 1.894, while the within $R^2$ is $\PanelWithin$. These estimates describe variation remaining after the country and year means have been accounted for.
+
+In model 3, contemporaneous house-price growth has a coefficient of 0.113 and its lag has a coefficient of $-0.215$. Their individual p-values are 0.581 and 0.111. The lagged specification uses 629 observations, compared with \PanelN{} in the baseline. This extension leaves the evidence for a common negative manufacturing-investment relationship weak.
+
+\subsection{Components, windows, and sample balance}
+\begin{table}[!htbp]\centering\begin{threeparttable}
+\caption{Sensitivity of the EU house-price coefficient}\label{tab:4}
+\small\setstretch{1.05}\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.25}
+\input{panel/output/sensitivity_table.tex}
+\begin{tablenotes}[flushleft]\footnotesize\setstretch{1.08}
+\item Each row modifies model 2. Equipment and intellectual property replace the outcome. The balanced window requires all 15 annual growth observations during 2010--2024 and retains 25 countries. Country and year effects remain in every row; only the last row changes clustering to country alone. Intervals use the reference degrees of freedom described in Section~5. Source: author calculations.
+\end{tablenotes}\end{threeparttable}\end{table}\FloatBarrier
+
+The equipment coefficient is 0.060, with an interval of $[-0.363,0.484]$. Intellectual property investment has a coefficient of $-0.326$, with an interval of $[-0.626,-0.026]$ and unadjusted p-value of 0.034. The latter is the most distinct component result, but it is one of several sensitivity estimates. It motivates closer study of investment composition rather than a conclusion about the total manufacturing response.
+
+The pre-2008 sample gives $-0.200$, while the 2008--2024 sample gives 0.142. Both intervals include zero. Excluding 2020 and 2021 produces $-0.144$, and ending the sample in 2023 produces 0.048. The balanced 2010--2024 estimate is $-0.171$ with an interval of $[-0.575,0.234]$. The aggregate conclusion therefore does not rely on one particular window or on using the longest possible unbalanced sample.
+
+\begin{figure}[!htbp]\centering
+\caption{EU baseline and sensitivity estimates}\label{fig:coefficients}
+\includegraphics[width=.95\linewidth]{panel/output/coefficients.pdf}
+\par\vspace{3pt}\begin{minipage}{.95\linewidth}\footnotesize\setstretch{1.08}
+Points show the house-price growth coefficient; bars show 95 percent intervals. All rows include GDP growth and country and year effects. Covariance is clustered by both dimensions except in the final row. Source: author calculations.
+\end{minipage}\end{figure}\FloatBarrier
+
+\subsection{Country influence and inference}
+Removing Spain yields 0.009, almost identical to the baseline. Across all 27 leave-one-country-out fits, the point estimate ranges from $\PanelLooMin$ to $\PanelLooMax$. This stability around zero indicates that no single national history generates the baseline conditional estimate.
+
+The country-only clustered standard error is 0.089, compared with 0.173 under country-and-year clustering. Accounting for dependence across countries within a year therefore matters for the reported uncertainty. The two-way estimate is used throughout the main results rather than selecting the covariance convention that gives a narrower interval.
+
+\section{Spain as the institutional case study}
+\subsection{National patterns during the boom}
+\begin{figure}[!htbp]\centering
+\caption{House prices and manufacturing investment in Spain}\label{fig:spain}
+\includegraphics[width=.94\linewidth]{figures/figure1.pdf}
+\par\vspace{3pt}\begin{minipage}{.94\linewidth}\footnotesize\setstretch{1.08}
+The upper panel rebases each series to 2000 = 100; the lower panel shows annual log growth multiplied by 100. Shading marks 2000--2007 and 2008--2013. Sources: Eurostat and national sources, BIS Residential Property Price database via FRED, using the archived Spain sample.
+\end{minipage}\end{figure}\FloatBarrier
+
+Between 2000 and 2007, annual average real house prices in Spain rose by 94.6 percent, while real manufacturing GFCF declined by 1.4 percent. Equipment investment rose by 10.1 percent and intellectual property investment by 85.1 percent. These endpoint changes show the importance of composition within manufacturing investment. Investment log growth averaged $-1.49$ percentage points in 2001--2003 and 0.78 in 2004--2007, while house-price growth averaged 10.22 and 8.97.
+
+\subsection{National regression benchmarks}
+\begin{table}[!htbp]\centering\begin{threeparttable}
+\caption{Spain: national time-series benchmarks}\label{tab:spain}
+\small\setstretch{1.05}\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.22}
 \input{tables/main_models_table.tex}
-\begin{tablenotes}[flushleft]
-\footnotesize\setstretch{1.08}
-\item Dependent variable: manufacturing investment log growth multiplied by 100. HAC standard errors appear in parentheses. Models 1--3 cover 1996--2024; model 4 covers 1997--2024. Newey--West bandwidth is one annual lag. Every model includes an intercept. Source: author calculations.
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
-\FloatBarrier
+\begin{tablenotes}[flushleft]\footnotesize\setstretch{1.08}
+\item These are the archived Spain models. Models 1--3 use 1996--2024; model 4 adds lagged house-price growth and uses 1997--2024. Parentheses contain Newey--West standard errors with one annual lag and the $n/(n-k)$ correction. The columns are separate national specifications, not the EU models. Source: author calculations.
+\end{tablenotes}\end{threeparttable}\end{table}\FloatBarrier
 
-The bivariate house price coefficient is 0.161 (p = 0.596). Adding GDP growth changes it to $-0.076$ (p = 0.769). Including the 2020 indicator yields the baseline conditional estimate of $-0.263$ (HAC standard error 0.434; p = 0.551). Its 95 percent confidence interval spans $-1.157$ to 0.632. The data therefore admit both a materially negative association and positive co-movement.
-
-
-A ten percentage point increase in house price log growth corresponds to 2.63 percentage points lower investment log growth at the baseline point estimate. The associated confidence interval runs from 11.57 points lower to 6.32 points higher. This wide range illustrates the economic uncertainty more clearly than the sign of the point estimate. Model 3 explains approximately 12.5 percent of annual investment growth variation, leaving most movements outside the specification.
-
-
-In model 4, the contemporaneous coefficient is 0.045 and the lagged coefficient is $-0.403$. Neither is individually distinguishable from zero at conventional levels. The two house price terms are persistent and the specification has only 23 residual degrees of freedom. Model 3 has a Durbin--Watson statistic of 1.64; Appendix~\ref{app:B} reports additional residual autocorrelation tests.
-
-
-\begin{figure}[!htbp]
-\centering
-\caption{Conditional association between house prices and manufacturing investment}
-\label{fig:2}
-\includegraphics[width=.96\linewidth]{figures/figure2.pdf}
-\par\vspace{3pt}
-\begin{minipage}{.96\linewidth}\footnotesize\setstretch{1.08}
-Both axes show residuals from regressions on an intercept, GDP growth, and the 2020 indicator. The fitted slope equals the house price coefficient in model 3 by the Frisch--Waugh--Lovell identity. Selected observations are labeled by year.
-\end{minipage}
-\end{figure}
-\FloatBarrier
-
-\subsection{Sensitivity and sample dependence}
-
-\begin{table}[!htbp]
-\centering
-\begin{threeparttable}
-\caption{Sensitivity of the house price coefficient}
-\label{tab:4}
-\small\setstretch{1.05}
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.25}
-\input{tables/sensitivity_table.tex}
-\begin{tablenotes}[flushleft]
-\footnotesize\setstretch{1.08}
-\item Rows for equipment and intellectual property replace the outcome in model 3. Short pre-2008 samples and the sample excluding 2020--2021 include GDP growth and an intercept, with no pandemic indicator. Other rows modify model 3 as named. HAC uses actual calendar-year gaps when years are omitted. Source: author calculations.
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
-\FloatBarrier
-
-The equipment coefficient is $-0.337$ and the intellectual property coefficient is 0.065. Both confidence intervals are wide. The signs therefore provide no reliable evidence that housing shifts investment between these two asset categories. Ending the sample in 2023, before the provisional observation, produces $-0.277$. Allowing two HAC lags leaves the baseline point estimate unchanged and gives a slightly wider interval. Adding lagged investment growth also leaves the central conclusion unchanged.
-
-
-For 1996--2007, the coefficient is $-0.746$ with a 95 percent confidence interval of $[-1.287, -0.205]$. Excluding the sharp investment decline in 2000 gives $-0.712$. Restricting the sample to 2001--2007 yields $-0.231$, with an interval of $[-2.080, 1.619]$. The stronger pre-2008 estimate thus depends partly on the contrast between the investment expansion of the late 1990s and the subsequent years. Within the seven-year boom window, precision falls sharply.
-
-
-Excluding 2020 and 2021 gives $-0.453$, again with an interval spanning zero. In a separate leave-one-year-out exercise, the full-sample conditional coefficient ranges from $-0.542$ to $-0.033$; each omission is refitted, and the pandemic indicator is removed when 2020 itself is omitted. The point estimate remains negative after every omission, although the broad confidence intervals in the main and sensitivity specifications leave its magnitude uncertain.
-
+The Spain model controlling for GDP growth and a 2020 indicator gives a house-price coefficient of $-0.263$, with an interval of $[-1.157,0.632]$. For 1996--2007, the coefficient is $-0.746$ with an interval of $[-1.287,-0.205]$; restricting the window to 2001--2007 instead gives $-0.231$ with an interval of $[-2.080,1.619]$. The longer pre-2008 window combines the investment expansion of the late 1990s with subsequent years. These national patterns explain why Spain merits closer institutional study, while the EU estimates provide the broader comparison.
 
 \section{Microeconomic evidence and a design for causal analysis}
 
@@ -366,43 +310,50 @@ A separate design should interact local house price growth with a firm's baselin
 That exclusion restriction is demanding because land scarcity can also affect industrial premises, local development, and firm location. A credible implementation should report the relevant first-stage diagnostics, examine pre-trends, use inference at the geographic level of the instrument, and allow for few effective aggregate shocks. Measuring misallocation additionally requires estimated marginal returns, productivity, or project outcomes. A large response among property owners alone can also reflect the relaxation of previously inefficient financing constraints. These firm-level outcomes would connect the collateral response to its productivity consequences.
 
 
-\section{Discussion and limitations}
 
-National manufacturing investment combines movements in demand, bank lending, internal funds, foreign finance, and sector-specific shocks. Within-firm lender comparisons examine a narrower credit supply margin while holding common borrower demand fixed. Changes in the distribution of finance across firms can therefore coexist with weak aggregate co-movement.
+\section{Discussion}
+The panel and the Spanish microeconomic evidence describe different margins. Across European country-years, house-price growth has little conditional association with total manufacturing investment growth once national GDP growth and common annual conditions are included. Within Spain, lender exposure and collateral ownership help explain which firms receive credit and how the response evolves during a housing boom. Reallocation across borrowers and investment components can coexist with a small aggregate coefficient.
 
+The panel addresses the original study's narrow geographic base, but several measurement and specification issues remain. National house prices may not match the location or type of property pledged by manufacturing firms. GFCF records expenditure rather than its financing source or return. Coverage is uneven, national accounts are revised, and common slope coefficients can conceal institutional heterogeneity. The balanced sample and country-influence checks reduce dependence on particular histories without replacing firm-level information.
 
-The single-country sample contains at most 29 growth observations. National house prices may differ from the collateral valuations relevant to manufacturing firms, and investment expenditure reveals neither its financing source nor its return. GDP is jointly determined with investment; omitted interest rates, exports, energy costs, and industry composition may also affect the estimates. The short lag structure captures only part of this variation. Possible nonstationarity of house price growth and revisions to the provisional 2024 observations add further uncertainty.
-
-
-Policy implications depend on whether property-backed lending eases productive firms' financing constraints or directs funds toward firms with lower returns. Capital and concentration measures address risks in bank portfolios, while better information about cash flows and investment projects could reduce dependence on property collateral. Evaluating these measures requires firm and project data, alongside attention to access to housing finance and the possibility that tighter constraints shift risk or restrict productive credit.
-
+For policy, the relevant distinction is between expanding finance for productive but constrained firms and directing funds toward borrowers with valuable property but lower-return projects. Capital and concentration measures address risks in bank portfolios; information about cash flows and investment opportunities may reduce reliance on property collateral. The near-zero aggregate panel estimate does not make those distributional questions disappear. They require evidence about borrowers, lenders, and project outcomes.
 
 \section{Conclusion}
+An EU country-by-year panel substantially broadens the evidence on house prices and manufacturing investment. The baseline uses \PanelN{} observations from all 27 current member countries, with country and year fixed effects and clustering along both dimensions. Its house-price coefficient is $\PanelBeta$ after including GDP growth, with an interval of $[\PanelLower,\PanelUpper]$. Alternative windows, a balanced sample, and country exclusions leave the total-investment estimates imprecise. Intellectual property investment provides a narrower negative component result that warrants further investigation.
 
-Spain's experience does not support a single unconditional claim that housing wealth crowds out productive investment. Published microeconomic evidence indicates that housing exposure can reduce credit to non-housing firms early in a boom and support expansion later. Collateral-based lending also raises a distinct concern about the allocation of capital. The original public-data analysis finds a negative but imprecise conditional association between real house price growth and manufacturing investment growth over 1996--2024. The more negative pre-2008 estimate weakens in the narrower boom window. Taken together, the findings point to the importance of bank constraints, collateral ownership, and the stage of the cycle. Extending the analysis to matched lending and firm accounts would link these aggregate patterns to the financing and investment decisions behind them.
-
-
-\clearpage
-
-\phantomsection
-
-\addcontentsline{toc}{section}{References}
-
-\bibliographystyle{plainnat}
-
-\bibliography{references}
+Spain remains informative because published microdata studies identify credit-supply and collateral mechanisms that national aggregates combine. The broader evidence supports an institution- and composition-sensitive account of housing finance rather than a uniform European crowding-out effect. Future work linking the panel to bank exposure, firm property holdings, and investment returns could explain how the national patterns emerge from individual financing decisions.
 
 \clearpage
+\phantomsection\addcontentsline{toc}{section}{References}
+\bibliographystyle{plainnat}\bibliography{references}
+\clearpage\appendix
+\renewcommand{\theequation}{\thesection.\arabic{equation}}\setcounter{equation}{0}
+\section{Country coverage}\label{app:coverage}
+\begin{table}[!htbp]\centering\begin{threeparttable}
+\caption{Complete-case baseline observations by country}\label{tab:coverage}
+\small\setstretch{1.0}\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.12}
+\input{panel/output/coverage_table.tex}
+\begin{tablenotes}[flushleft]\footnotesize\setstretch{1.08}
+\item Each observation requires consecutive-year positive levels for manufacturing investment, real house prices, and GDP. The cohort comprises all current EU27 members. A country-year CSV records exact omitted years and source status flags; the first and last years shown here summarize usable growth coverage. Source: author calculations.
+\end{tablenotes}\end{threeparttable}\end{table}\FloatBarrier
 
-\appendix
+\clearpage
+\section{Covariance implementation and verification}\label{app:inference}
+\subsection{Country-and-year clustering}
+Let $\mathbf s_{it}=\mathbf x_{it}\widehat u_{it}$ denote a score contribution from the full dummy-variable design, including the country and year effects. Country and year score totals are $\mathbf S_i=\sum_t\mathbf s_{it}$ and $\mathbf S_t=\sum_i\mathbf s_{it}$. The reported covariance is
+\begin{equation}\label{eq:cluster}
+\widehat{\mathbf V}=(\mathbf X^{\top}\mathbf X)^{-1}
+\left[c_c\sum_i\mathbf S_i\mathbf S_i^{\top}
++c_t\sum_t\mathbf S_t\mathbf S_t^{\top}
+-c_{ct}\sum_{i,t}\mathbf s_{it}\mathbf s_{it}^{\top}\right]
+(\mathbf X^{\top}\mathbf X)^{-1}.
+\end{equation}
+For component $d$, $c_d=G_d/(G_d-1)\,(N-1)/(N-K)$. Here $K$ is the rank of the full estimated design, including fixed effects. Each observed country-year cell is unique, so the intersection component has $G_{ct}=N$. The estimator follows \citet{cameron2011}; the main code calls \texttt{statsmodels}' two-group covariance routine.
 
-\renewcommand{\theequation}{\thesection.\arabic{equation}}
+An independent implementation aggregates the three sets of scores and reproduces each reported covariance. Alternating country/year projections separately recover the full dummy-variable slopes; iteration handles the unbalanced panel. Both checks cover all 12 specifications.
 
-\setcounter{equation}{0}
-
-\section{Calendar-gap Newey--West covariance}\label{app:A}
-
-The exclusion samples retain the original calendar spacing between observations. With a one-year bandwidth, 2019 and 2021 do not form a lag-one pair when 2020 is omitted. Treating the remaining rows as consecutive would instead introduce a covariance term between observations two years apart.
+\subsection{Calendar gaps in the Spain benchmarks}
+The Spain benchmarks use the Bartlett-kernel covariance of \citet{newey1987}, pairing observations at their actual calendar-year distances. Omitting 2020 does not make 2019 and 2021 adjacent under a one-year bandwidth.
 
 Let $\mathcal T$ denote the set of included calendar years and let
 $\mathbf s_t=\mathbf x_t\widehat u_t$ be the score contribution for year $t$.
@@ -424,38 +375,7 @@ Here $n$ is the number of included observations, $k$ includes the intercept, and
 the annual bandwidth. Cross-products use actual calendar distances when years are
 omitted. Confidence intervals use the $t$ critical value with $n-k$ degrees of freedom.
 
-The function \texttt{calendar\_hac\_meat} in \texttt{models.py} forms score cross-products only when the calendar-year distance equals the specified lag. The independent implementation in \texttt{verify\_analysis.py} inserts zero score rows for omitted years before applying the Bartlett kernel in \texttt{statsmodels}. These zero rows affect the lagged cross-products only: the OLS fit and the $n/(n-k)$ correction continue to use the observed regression sample, not the padded calendar length.
-
-\clearpage
-\section{Time series diagnostics}\label{app:B}
-
-Table~\ref{tab:6} reports augmented Dickey--Fuller tests with an intercept, no deterministic trend, and one fixed lag of the differenced dependent variable \citep{dickey1979}. All tests use the same 1996--2024 growth series; the fixed lag structure leaves 27 effective observations. The null hypothesis is a unit root.
-
-
-\begin{table}[!htbp]
-\centering
-\begin{threeparttable}
-\caption{Augmented Dickey--Fuller diagnostics}
-\label{tab:6}
-\small\setstretch{1.05}
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.25}
-\input{tables/diagnostics_table.tex}
-\begin{tablenotes}[flushleft]
-\footnotesize\setstretch{1.08}
-\item The tests include an intercept and one lag, without a deterministic trend. Source: author calculations.
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
-\FloatBarrier
-
-Real house price growth has an ADF statistic of $-2.352$ and an approximate p-value of 0.156, so the unit-root null is not rejected at 5 percent. Manufacturing investment growth and GDP growth have p-values of 0.027 and 0.013, respectively. The weaker evidence of stationarity in house price growth is consistent with its persistent movement through the housing cycle and motivates the inference qualifications in Section~5.
-
-
-For model 3, Ljung--Box residual portmanteau tests at horizons one and two give p-values of 0.346 and 0.641 \citep{ljung1978}. The tests use no fitted ARMA parameter adjustment and do not reject at conventional levels. The 2020 indicator has leverage equal to one for its sole nonzero observation and fits that observation exactly.
-
-
-
+The function \texttt{calendar\_hac\_meat} matches observations by year distance. The independent \texttt{statsmodels} check pads omitted years with zero scores; OLS and the finite-sample factor continue to use the observed sample size.
 
 
 \end{document}

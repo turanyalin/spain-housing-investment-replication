@@ -1,0 +1,43 @@
+{
+  "title": "EU27 housing and manufacturing investment panel",
+  "cohort": "Current EU27 membership, followed retrospectively including pre-accession years",
+  "level_window": [
+    1995,
+    2024
+  ],
+  "growth_window": [
+    1996,
+    2024
+  ],
+  "baseline_observations": 656,
+  "baseline_countries": 27,
+  "baseline_years": 29,
+  "raw_manifest_sha256": "10224c27f1a7a0a9317776cefe5f06624aa5c84f8c287348a4ce4efb3d8b524f",
+  "code_sha256": {
+    "panel/__init__.py": "65ebe7ad3d5c076bfadbdd37a68f53303acdca075ba5f89ee56936b60fbc1da2",
+    "panel/data.py": "0286b04a049e6910acd951d7a919dcbf13b204c832ae2543836b354644ff7c0d",
+    "panel/download.py": "7e9b19bc800129a6c15e1403cc804c6763805583609cbaae7f8bc0377cc04160",
+    "panel/models.py": "83aa5ae774262c8f7c8f91e4b6332e9a87d2162f5ac913e2ba8f397d36617547",
+    "panel/reporting.py": "25a0666de8c1bdbf0f5ae8b90301e2a5461be340f9028e6f7116a824f67adc0f",
+    "panel/run.py": "e27cc1d4da530bbfd53ac5de0178f5b1f989daf411feaca6a89472491b876055",
+    "panel/verify.py": "f24c1c078808350b29be77892860bb446fe9cf24b2221021cd01b5bbc0e0b5b0"
+  },
+  "python": "3.12.14",
+  "versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8",
+    "statsmodels": "0.15.0",
+    "patsy": "1.0.3"
+  },
+  "primary_specification": "g_manufacturing ~ g_house + g_gdp + C(country) + C(year)",
+  "primary_inference": "Country-and-year CRV1: V_country + V_year - V_country-year; per-component small-sample corrections; t reference df=min(G_country,G_year)-1",
+  "documentation": {
+    "bis": "https://data.bis.org/topics/RPP",
+    "covariance": "https://www.statsmodels.org/devel/generated/statsmodels.stats.sandwich_covariance.cov_cluster_2groups.html",
+    "method": "https://doi.org/10.1198/jbes.2010.07136"
+  },
+  "spain_reference_commit": "0c209c4a21de66c71f1c1c6f5ed627a748993c91",
+  "spain_overlap_levels_identical": true
+}

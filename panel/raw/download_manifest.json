@@ -1,0 +1,254 @@
+{
+  "countries": {
+    "AT": "Austria",
+    "BE": "Belgium",
+    "BG": "Bulgaria",
+    "HR": "Croatia",
+    "CY": "Cyprus",
+    "CZ": "Czechia",
+    "DK": "Denmark",
+    "EE": "Estonia",
+    "FI": "Finland",
+    "FR": "France",
+    "DE": "Germany",
+    "EL": "Greece",
+    "HU": "Hungary",
+    "IE": "Ireland",
+    "IT": "Italy",
+    "LV": "Latvia",
+    "LT": "Lithuania",
+    "LU": "Luxembourg",
+    "MT": "Malta",
+    "NL": "Netherlands",
+    "PL": "Poland",
+    "PT": "Portugal",
+    "RO": "Romania",
+    "SK": "Slovakia",
+    "SI": "Slovenia",
+    "ES": "Spain",
+    "SE": "Sweden"
+  },
+  "level_window": [
+    1995,
+    2024
+  ],
+  "sources": {
+    "equipment.json": {
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a64_p5?freq=A&unit=CLV20_MEUR&sinceTimePeriod=1995&untilTimePeriod=2024&nace_r2=C&na_item=P51G&asset10=N11MG&geo=AT&geo=BE&geo=BG&geo=HR&geo=CY&geo=CZ&geo=DK&geo=EE&geo=FI&geo=FR&geo=DE&geo=EL&geo=HU&geo=IE&geo=IT&geo=LV&geo=LT&geo=LU&geo=MT&geo=NL&geo=PL&geo=PT&geo=RO&geo=SK&geo=SI&geo=ES&geo=SE",
+      "retrieved_utc": "2026-10-30T03:48:21.617323+00:00",
+      "http_status": 200,
+      "size_bytes": 14748,
+      "sha256": "1202f5182ca356f76493b67bf4e388e67d59f7fe692cc9ff70651cb1e49be6b4"
+    },
+    "gdp.json": {
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?freq=A&unit=CLV20_MEUR&sinceTimePeriod=1995&untilTimePeriod=2024&na_item=B1GQ&geo=AT&geo=BE&geo=BG&geo=HR&geo=CY&geo=CZ&geo=DK&geo=EE&geo=FI&geo=FR&geo=DE&geo=EL&geo=HU&geo=IE&geo=IT&geo=LV&geo=LT&geo=LU&geo=MT&geo=NL&geo=PL&geo=PT&geo=RO&geo=SK&geo=SI&geo=ES&geo=SE",
+      "retrieved_utc": "2026-10-30T03:48:21.621648+00:00",
+      "http_status": 200,
+      "size_bytes": 16125,
+      "sha256": "a4cc40749aff798faab45f179d96576e56ae149b60d402886a58bc782c41627b"
+    },
+    "house_AT.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QATR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:25.484112+00:00",
+      "http_status": 200,
+      "size_bytes": 3140,
+      "sha256": "ebb4e8556c1f1221a4dad769be44f472e9a9470578e49963fde3c9fa9c967bd2"
+    },
+    "house_BE.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QBER628BIS",
+      "retrieved_utc": "2026-10-30T03:48:25.565600+00:00",
+      "http_status": 200,
+      "size_bytes": 4359,
+      "sha256": "67a2d7e6da39ad42407537bc5fe24575eb327b62b6e10ff4c6fa764db0798075"
+    },
+    "house_BG.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QBGR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:25.816784+00:00",
+      "http_status": 200,
+      "size_bytes": 2233,
+      "sha256": "f0503be3d46c3f75af0d765f1f69f2aeed2346b00caecddb75721cf8de4514ca"
+    },
+    "house_CY.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QCYR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:28.531743+00:00",
+      "http_status": 200,
+      "size_bytes": 1883,
+      "sha256": "b8a7f25ab6ac302b2626d14343de4fdd4678cd1d12b6140e631f963ea2b27c7c"
+    },
+    "house_CZ.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QCZR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:28.560313+00:00",
+      "http_status": 200,
+      "size_bytes": 1466,
+      "sha256": "42571add494f889ec9d343ba9b3b2eb1fb030d5bcd5a3e7995103cc64ca3c337"
+    },
+    "house_DE.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QDER628BIS",
+      "retrieved_utc": "2026-10-30T03:48:30.847609+00:00",
+      "http_status": 200,
+      "size_bytes": 4524,
+      "sha256": "34cc9175468abbc506e033f6413d55c084807808a1628a44f0526308f47ceef3"
+    },
+    "house_DK.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QDKR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:28.564286+00:00",
+      "http_status": 200,
+      "size_bytes": 4364,
+      "sha256": "cbd1bc2214ebc61c7a07b24d3f0619a2ef5a295720a2a17d6d035484ebf71517"
+    },
+    "house_EE.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QEER628BIS",
+      "retrieved_utc": "2026-10-30T03:48:28.603684+00:00",
+      "http_status": 200,
+      "size_bytes": 1724,
+      "sha256": "f5fd87a05d396738a0b3923bd73c00fa1e3e7d9d9f3fe96ca9c3f1e34c574d65"
+    },
+    "house_EL.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QGRR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:30.851206+00:00",
+      "http_status": 200,
+      "size_bytes": 2273,
+      "sha256": "e98eb50c9369ed1148890a1392b95e477d17c29b40c5ae5592825fa53a5e568e"
+    },
+    "house_ES.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QESR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:40.634241+00:00",
+      "http_status": 200,
+      "size_bytes": 4252,
+      "sha256": "645daad97e7a4dcc719919bee2fe25b3acd0e7a884b775a20a4cc865440dbf39"
+    },
+    "house_FI.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QFIR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:30.762214+00:00",
+      "http_status": 200,
+      "size_bytes": 4311,
+      "sha256": "c7e4314e47d61dda57efa66ddcd16b1c9e8a7c24d06cb68b3343a46b4d89ce4b"
+    },
+    "house_FR.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QFRR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:30.807449+00:00",
+      "http_status": 200,
+      "size_bytes": 4345,
+      "sha256": "8e10fc6133d7dcfcf79135b0a3c9e963a9b62e53420c7f36b1d76c5ae7d0114f"
+    },
+    "house_HR.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QHRR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:25.897585+00:00",
+      "http_status": 200,
+      "size_bytes": 2297,
+      "sha256": "f3b3a7aed6b7450125ed8bfa6de08fe8d75033100f9a7dd676ffee221a14869a"
+    },
+    "house_HU.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QHUR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:33.656725+00:00",
+      "http_status": 200,
+      "size_bytes": 2711,
+      "sha256": "c315ed0af76a9ace40f3c92b8b61378aba55e3a3140c108a0c5af52ad760d8ca"
+    },
+    "house_IE.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QIER628BIS",
+      "retrieved_utc": "2026-10-30T03:48:33.796798+00:00",
+      "http_status": 200,
+      "size_bytes": 4378,
+      "sha256": "5a22ac805917885d8392d34a62c49bfaba488808ee95a34689ffac64c53a87f4"
+    },
+    "house_IT.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QITR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:33.797297+00:00",
+      "http_status": 200,
+      "size_bytes": 6068,
+      "sha256": "e7b4dc58aded525fdbf0759e6a5e9434099af3673c7137b5bb8d16a8065544a1"
+    },
+    "house_LT.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QLTR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:35.498086+00:00",
+      "http_status": 200,
+      "size_bytes": 2192,
+      "sha256": "b61562ac791947bbaf44ad4e9b382eb9d5d933c37392e00d3eb3b33ad832c701"
+    },
+    "house_LU.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QLUR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:35.561231+00:00",
+      "http_status": 200,
+      "size_bytes": 1552,
+      "sha256": "4b16d0e32bf6c205757a92842143f4c337be7a99180537dbe3d0f7cfed0ddff3"
+    },
+    "house_LV.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QLVR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:33.829708+00:00",
+      "http_status": 200,
+      "size_bytes": 1646,
+      "sha256": "1527113cf1af6635042386dc6997abdfa3d913641fbf0f694ef510afb10aee69"
+    },
+    "house_MT.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QMTR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:35.565339+00:00",
+      "http_status": 200,
+      "size_bytes": 1699,
+      "sha256": "32dc22e3a0e48ea6ba99ddcaf3fd90ae6f68e4586b0d3ed92e320882e5b345ac"
+    },
+    "house_NL.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QNLR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:35.571490+00:00",
+      "http_status": 200,
+      "size_bytes": 4358,
+      "sha256": "5718c8bfd64deefaa1a4086236d9e7d310f22190fcaed5ea1a2a1a15a753c5be"
+    },
+    "house_PL.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QPLR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:37.729131+00:00",
+      "http_status": 200,
+      "size_bytes": 1294,
+      "sha256": "265632f92b60fda332ddf60446e3fd1485acf7a8fd46298d01a132e279aeb29a"
+    },
+    "house_PT.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QPTR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:37.774779+00:00",
+      "http_status": 200,
+      "size_bytes": 3057,
+      "sha256": "bcd61a1ba2481beb26924c4d11b7576d9b716ee88d393bbdc68c8d8d0cb8f700"
+    },
+    "house_RO.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QROR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:37.784268+00:00",
+      "http_status": 200,
+      "size_bytes": 1345,
+      "sha256": "2276969db3edb46e0c509135bcecb10df9feee556a6b895c3a73d9b5fac66792"
+    },
+    "house_SE.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QSER628BIS",
+      "retrieved_utc": "2026-10-30T03:48:40.684016+00:00",
+      "http_status": 200,
+      "size_bytes": 4362,
+      "sha256": "4d528412785d929858318ef5bbea9c9c39b7852c7f2269b458aca3ca2a51ed9d"
+    },
+    "house_SI.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QSIR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:40.632001+00:00",
+      "http_status": 200,
+      "size_bytes": 1513,
+      "sha256": "b9341274e6d7ad1cab7e9829837bb0c78a4dcb4e265b5b0e35cda24d441e992b"
+    },
+    "house_SK.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QSKR628BIS",
+      "retrieved_utc": "2026-10-30T03:48:37.799718+00:00",
+      "http_status": 200,
+      "size_bytes": 1620,
+      "sha256": "fe45ea0953e19b08fcacec72a998358a859ed4c68e30208749232beed5c13f04"
+    },
+    "ipp.json": {
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a64_p5?freq=A&unit=CLV20_MEUR&sinceTimePeriod=1995&untilTimePeriod=2024&nace_r2=C&na_item=P51G&asset10=N117G&geo=AT&geo=BE&geo=BG&geo=HR&geo=CY&geo=CZ&geo=DK&geo=EE&geo=FI&geo=FR&geo=DE&geo=EL&geo=HU&geo=IE&geo=IT&geo=LV&geo=LT&geo=LU&geo=MT&geo=NL&geo=PL&geo=PT&geo=RO&geo=SK&geo=SI&geo=ES&geo=SE",
+      "retrieved_utc": "2026-10-30T03:48:21.620262+00:00",
+      "http_status": 200,
+      "size_bytes": 14372,
+      "sha256": "0156b8af68b33cd1a5c37e7a8cfd6cc7a53c83c8e692cc6025b7a3fa55476def"
+    },
+    "manufacturing.json": {
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a64_p5?freq=A&unit=CLV20_MEUR&sinceTimePeriod=1995&untilTimePeriod=2024&nace_r2=C&na_item=P51G&asset10=N11G&geo=AT&geo=BE&geo=BG&geo=HR&geo=CY&geo=CZ&geo=DK&geo=EE&geo=FI&geo=FR&geo=DE&geo=EL&geo=HU&geo=IE&geo=IT&geo=LV&geo=LT&geo=LU&geo=MT&geo=NL&geo=PL&geo=PT&geo=RO&geo=SK&geo=SI&geo=ES&geo=SE",
+      "retrieved_utc": "2026-10-30T03:48:21.615406+00:00",
+      "http_status": 200,
+      "size_bytes": 14975,
+      "sha256": "42d0a52db3d9c3ab8aca25b79aca97b589d7c8acd1162f130982929f24e27dca"
+    }
+  }
+}

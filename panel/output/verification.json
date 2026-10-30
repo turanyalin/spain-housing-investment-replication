@@ -1,0 +1,62 @@
+{
+  "P1_house": {
+    "n": 656,
+    "within_slopes_verified": true,
+    "cluster_covariance_verified": true
+  },
+  "P2_gdp": {
+    "n": 656,
+    "within_slopes_verified": true,
+    "cluster_covariance_verified": true
+  },
+  "P3_lag": {
+    "n": 629,
+    "within_slopes_verified": true,
+    "cluster_covariance_verified": true
+  },
+  "S_equipment": {
+    "n": 652,
+    "within_slopes_verified": true,
+    "cluster_covariance_verified": true
+  },
+  "S_ipp": {
+    "n": 652,
+    "within_slopes_verified": true,
+    "cluster_covariance_verified": true
+  },
+  "S_no_spain": {
+    "n": 627,
+    "within_slopes_verified": true,
+    "cluster_covariance_verified": true
+  },
+  "S_pre2008": {
+    "n": 202,
+    "within_slopes_verified": true,
+    "cluster_covariance_verified": true
+  },
+  "S_post2008": {
+    "n": 452,
+    "within_slopes_verified": true,
+    "cluster_covariance_verified": true
+  },
+  "S_exclude_covid": {
+    "n": 602,
+    "within_slopes_verified": true,
+    "cluster_covariance_verified": true
+  },
+  "S_to2023": {
+    "n": 630,
+    "within_slopes_verified": true,
+    "cluster_covariance_verified": true
+  },
+  "S_balanced": {
+    "n": 375,
+    "within_slopes_verified": true,
+    "cluster_covariance_verified": true
+  },
+  "S_country_cluster": {
+    "n": 656,
+    "within_slopes_verified": true,
+    "cluster_covariance_verified": true
+  }
+}

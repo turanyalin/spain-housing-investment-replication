@@ -1,34 +1,30 @@
-# Reproduction notes
+# Reproduction and manuscript notes
 
-## Environment
+Use Python 3.12 with the pinned packages in `replication/requirements.txt` (included by the root requirements file). The recorded Python version is 3.12.14. TeX is needed only to compile the paper.
 
-Use Python 3.12 and the versions in `replication/requirements.txt`. A virtual environment keeps the reproduction separate from other projects. The original recorded Python version is 3.12.14. TeX is optional for the numerical analysis and is needed only for building the paper PDF.
+## Complete workflow
 
-## Validation sequence
+`python reproduce.py` validates the archived Spain inputs and active code, the panel code, and the panel download manifest. It runs the Spain pipeline and its independent HAC audit, runs the EU panel and its independent fixed-effects/cluster checks, compares regenerated numerical results with frozen references, and requires nonempty generated tables and figures. Raw panel responses are separately checked against their archived SHA-256 hashes.
 
-`python reproduce.py` checks raw-file and active analysis-code hashes before running the pipeline. It retains the supplied JSON outputs in memory, rebuilds the analysis, runs the independent statsmodels audit, and compares every value in the regenerated model-results and diagnostics JSON files with the references. It also generates four empirical table snippets and checks that the tables and both vector figures are nonempty.
+`make test` runs the ingestion, calendar, fixed-effects, and covariance regression checks. `make paper` reproduces the analyses and compiles `main.tex`. `make clean` removes temporary TeX files.
 
-The reference comparison uses absolute tolerance `1e-8` and relative tolerance `1e-9`. The independent audit uses the checks described in the [analysis README](../replication/README.md). Figures are regenerated without requiring byte identity because metadata and rendering can vary.
+Numerical reference comparison allows absolute tolerance `1e-8` and relative tolerance `1e-9`; independent panel covariance checks allow `1e-8` absolute and `1e-7` relative tolerance. Figures are not required to be byte-identical because PDF metadata can differ. Use a clean clone to recover the intended frozen references after exploratory edits.
 
-To return to the published references after editing outputs, use a fresh clone or restore the intended files from your chosen Git commit. Replacing reference outputs with arbitrary new results defeats the comparison.
+## Manuscript assets
 
-## Manuscript build
+The main paper loads panel tables, text macros, coverage, and coefficient figures from `panel/output/`. It also loads the generated Spain benchmark table and historical figure. Other Spain sensitivity and diagnostic outputs remain available in `replication/` and `tables/`. Captions, source descriptions, the microeconomic literature table, and much of the numerical prose remain in `main.tex`.
 
-Run the analysis before compiling if you want fresh figures. `make paper` reproduces the numerical analysis and compiles the manuscript; `make reproduce` runs the numerical pipeline; `make test` checks calendar gaps and ingestion; `make clean` removes temporary TeX files with `latexmk -c`.
-
-Tables 2, 3, 4, and 6 load their generated contents from `tables/`. Source definitions, literature estimates, and numerical prose remain in `main.tex`. Changing a specification therefore still requires reviewing the manuscript text. See the [pipeline walkthrough](code_walkthrough.md) for the code sample and module responsibilities.
+The EU baseline uses 656 observations and changes the main empirical finding to a near-zero conditional house-price coefficient. The Spain case and original 13 specifications are retained. The repository URL remains unchanged so existing replication links keep working.
 
 ## Troubleshooting
 
 | Symptom | Action |
 | --- | --- |
-| `ModuleNotFoundError` | Activate the virtual environment and run `python -m pip install -r requirements.txt` from the root. |
-| No matching package version | Confirm Python 3.12, a supported platform, and an index with the pinned releases. Do not silently substitute versions for an exact reproduction. |
-| Hash mismatch | Compare the affected file with the published commit or use a fresh clone. Raw inputs and the versioned active scripts should match the selected commit. |
-| Numerical mismatch | Retain the error, Python and package versions, platform, and repository commit when opening an issue. |
-| Missing `latexmk` or TeX package | Install a TeX distribution with the packages requested by `main.tex`, or use Overleaf. |
-| Different results from live data | Series may have been revised. Use the archived files for exact reproduction and treat fresh observations as a separate update. |
+| `ModuleNotFoundError` | Activate the environment and install `python -m pip install -r requirements.txt`. |
+| Hash mismatch | Compare the input or code with the intended Git commit. Do not edit hashes simply to suppress a mismatch. |
+| Numerical mismatch | Keep the error, package versions, platform, and Git commit when reporting the issue. |
+| Missing table or figure | Run the complete reproduction before compiling, or recover the committed generated assets. |
+| Missing TeX package | Install the packages requested by `main.tex`, or compile in Overleaf. |
+| Different estimates from new downloads | Data revisions create a new vintage. Preserve it separately and update references and manuscript deliberately. |
 
-## Changes from the source archive
-
-The analysis is refactored into ingestion, estimation, reporting, and figure modules. Four empirical manuscript tables are now generated from the saved results. The original scripts remain available in Git history; their hashes are recorded separately from the active module hashes in `replication/source_manifest.json`. Raw responses, model definitions, bibliography, and numerical reference results are preserved. The manuscript prose has been edited for clarity, and Appendix A focuses on calendar-gap HAC inference.
+See the [code walkthrough](code_walkthrough.md) and [panel guide](../panel/README.md) for implementation details.

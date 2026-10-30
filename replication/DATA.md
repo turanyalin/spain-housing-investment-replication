@@ -1,4 +1,4 @@
-# Data sources and transformations
+# Spain archive: data sources and transformations
 
 The archived public-source responses were retrieved on **29 October 2026**. Exact query URLs, filters, software versions, and SHA-256 hashes are recorded in [`source_manifest.json`](source_manifest.json). The scripts read local snapshots and do not fetch live data.
 

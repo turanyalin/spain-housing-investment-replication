@@ -1,7 +1,5 @@
-# Manuscript figures
+# Spain reference figures
 
-`figure1.pdf` shows indexed real house prices and manufacturing investment, followed by annual growth rates. `figure2.pdf` shows the partial relationship between house-price and manufacturing investment growth after removing GDP growth and the 2020 indicator.
+`figure1.pdf` shows indexed Spanish real house prices and manufacturing investment, followed by annual growth rates. It is included in the main EU manuscript as the historical Spain case-study figure. `figure2.pdf` retains the Spanish partial relationship after removing GDP growth and the 2020 indicator as a supplementary output.
 
-Regenerate both vector PDFs with `python reproduce.py` from the repository root. Corresponding PNG files are written to `replication/figure1.png` and `replication/figure2.png`. `main.tex` embeds the PDFs directly. No external images or proprietary fonts are required.
-
-Figure bytes can differ across runs because of rendering metadata or platform differences. Numerical results are checked separately by the reproduction command.
+`python reproduce.py` regenerates both vector PDFs and the corresponding PNG files in `replication/`. The EU coverage and coefficient figures are generated separately in `panel/output/`. Numerical results are checked independently; PDF bytes can differ because of rendering metadata.

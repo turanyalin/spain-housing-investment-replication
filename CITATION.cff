@@ -1,14 +1,15 @@
 cff-version: 1.2.0
 message: "If you use this code or data snapshot, cite this repository and the commit used."
-title: "House Prices, Bank Credit, and Manufacturing Investment in Spain: Replication Code"
+title: "House Prices and Manufacturing Investment in the European Union: Replication Code"
 type: software
 authors:
   - family-names: Celik
     given-names: Turan
-date-released: 2026-10-29
-version: 1.0.0
+date-released: 2026-10-30
+version: 2.0.0
 repository-code: "https://github.com/turanyalin/spain-housing-investment-replication"
 abstract: >-
-  Archived public-data replication of annual Spanish housing and manufacturing
-  investment regressions, including 13 OLS specifications, calendar-aware HAC
-  inference, an independent statistical audit, figures, and a LaTeX manuscript.
+  Reproducible EU27 country-year panel with country and year fixed effects,
+  country-and-year clustered inference, 656 baseline observations, 12 panel
+  specifications, independent statistical checks, automated manuscript assets,
+  and a preserved Spanish institutional case study and 13 national regressions.
