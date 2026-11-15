@@ -1,0 +1,25 @@
+name: Reproduce
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            replication/requirements.txt
+      - run: python -m pip install -r requirements.txt
+      - name: Reproduce all models and verify against archived references
+        run: python reproduce.py
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v

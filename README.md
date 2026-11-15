@@ -1,5 +1,7 @@
 # EU housing and manufacturing investment
 
+[![Reproduce](https://github.com/turanyalin/spain-housing-investment-replication/actions/workflows/reproduce.yml/badge.svg)](https://github.com/turanyalin/spain-housing-investment-replication/actions/workflows/reproduce.yml)
+
 Replication code and archived public data for **House Prices and Manufacturing Investment in the European Union: Panel Evidence and the Spanish Credit Channel**, by Turan Celik (30 October 2026).
 
 The main empirical analysis is an EU27 country-by-year panel with **656 baseline observations over 1996–2024**, country and year fixed effects, and country-and-year clustered standard errors. Spain remains the institutional case study and microdata synthesis. The original 29-observation Spain analysis is preserved alongside the panel.
@@ -55,7 +57,7 @@ python reproduce.py
 latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-This creates `main.pdf`. `make paper` combines these steps; `make test` runs the tests. The committed generated snippets also allow direct LaTeX compilation without Python. For Overleaf, upload a repository ZIP and select `main.tex`.
+This creates `main.pdf`. `make paper` combines these steps; `make test` runs the tests. GitHub Actions reruns `reproduce.py` and the test suite on every push. The committed generated snippets also allow direct LaTeX compilation without Python. For Overleaf, upload a repository ZIP and select `main.tex`.
 
 The main manuscript loads the generated panel tables, coverage table, numerical macros, and figures. The Spain benchmark table and historical figure are also generated. Literature estimates, source descriptions, and much of the numerical discussion remain manuscript text, so any change to data or specifications requires editorial review.
 
